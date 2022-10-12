@@ -78,7 +78,7 @@
 
         <section class="overlay"></section>
     </header>
-    <div>
+    <div class="box">
         @yield('app')
     </div>
 </body>

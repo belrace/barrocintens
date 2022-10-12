@@ -105,3 +105,16 @@ nav.open ~ .overlay {
     left: 260px;
     pointer-events: auto;
 }
+.box {
+    height: 100%;
+    width: auto;
+    margin-top: 95px;
+    background-color: #212121;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 5%;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    border-radius: 20px;
+}
