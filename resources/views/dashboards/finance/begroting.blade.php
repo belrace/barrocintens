@@ -1,5 +1,6 @@
+@dd('dashboards/base')
 @extends('dashboards/base')
 
 @section('app')
-    hoi
+
 @endsection
