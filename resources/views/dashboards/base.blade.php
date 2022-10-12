@@ -10,7 +10,12 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/css/dashboard.css">
+        <script src="../js/app.js" defer></script>
+        <link
+            href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+            rel="stylesheet"
+        />
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <!-- JavaScript Bundle with Popper -->
@@ -24,7 +29,7 @@
             }
         </style>
     </head>
-    
+
 
 <body>
 <header>
@@ -84,9 +89,9 @@
         </nav>
 
         <section class="overlay"></section>
-        
 
-        
+
+
 
     </header>
     @yield('app')
