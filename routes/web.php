@@ -59,3 +59,15 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+
+
+Route::get('/test', function () {
+    return view('test.test');
+});
+
+Route::get('/testnaar', function () {
+    return view('test.testnaar');
+});
+

@@ -6,17 +6,17 @@
         <div class="mt-10 sm:mt-0">
             <x-jet-form-section submit="addTeamMember">
                 <x-slot name="title">
-                    {{ __('Add Team Member') }}
+                    {{ __('Voeg medewerker afdeling toe') }}
                 </x-slot>
 
                 <x-slot name="description">
-                    {{ __('Add a new team member to your team, allowing them to collaborate with you.') }}
+                    {{ __('Voeg een nieuwe medewerker voor de afdeling toe.') }}
                 </x-slot>
 
                 <x-slot name="form">
                     <div class="col-span-6">
                         <div class="max-w-xl text-sm text-gray-600">
-                            {{ __('Please provide the email address of the person you would like to add to this team.') }}
+                            {{ __('voer het mail adres van de nieuwe medewerker toe.') }}
                         </div>
                     </div>
 
@@ -30,7 +30,7 @@
                     <!-- Role -->
                     @if (count($this->roles) > 0)
                         <div class="col-span-6 lg:col-span-4">
-                            <x-jet-label for="role" value="{{ __('Role') }}" />
+                            <x-jet-label for="role" value="{{ __('Rol') }}" />
                             <x-jet-input-error for="role" class="mt-2" />
 
                             <div class="relative z-0 mt-1 border border-gray-200 rounded-lg cursor-pointer">
@@ -67,7 +67,7 @@
                     </x-jet-action-message>
 
                     <x-jet-button>
-                        {{ __('Add') }}
+                        {{ __('Toevoegen') }}
                     </x-jet-button>
                 </x-slot>
             </x-jet-form-section>
