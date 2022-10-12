@@ -17,8 +17,6 @@
             rel="stylesheet"
         />
     </head>
-
-
 <body>
 <header>
         <nav>
