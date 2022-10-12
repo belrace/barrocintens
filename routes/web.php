@@ -18,26 +18,26 @@ Route::get('/', function () {
 });
 
 Route::get('/finance', function () {
-    return view('finance.index');
+    return view('dashboards.finance.index');
 });
 Route::get('/finance/facturen', function () {
-    return view('finance.facturen');
+    return view('dashboards.finance.facturen');
 });
 
 Route::get('/finance/factuur/create', function () {
-    return view('finance.factuur_create');
+    return view('dashboards.finance.factuur_create');
 });
 
 Route::get('/inkoop', function () {
-    return view('inkoop.index');
+    return view('dashboards.inkoop.index');
 });
 
 Route::get('/maintenance', function () {
-    return view('maintenance.index');
+    return view('dashboards.maintenance.index');
 });
 
 Route::get('/onderhoud', function () {
-    return view('sales.index');
+    return view('dashboards.sales.index');
 });
 
 Route::get('/webshop', function () {
