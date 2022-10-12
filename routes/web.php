@@ -27,6 +27,12 @@ Route::get('/finance/facturen', function () {
 Route::get('/finance/factuur/create', function () {
     return view('dashboards.finance.factuur_create');
 });
+Route::get('/finance/begroting', function () {
+    return view('dashboards.finance.begroting');
+});
+Route::get('/finance/betalingsachterstanden', function () {
+    return view('dashboards.finance.betalingsachterstanden');
+});
 
 Route::get('/inkoop', function () {
     return view('dashboards.inkoop.index');
