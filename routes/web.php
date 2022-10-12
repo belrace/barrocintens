@@ -17,6 +17,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/finance', function () {
+    return view('finance.index');
+});
+Route::get('/finance/facturen', function () {
+    return view('finance.facturen');
+});
+
+Route::get('/finance/factuur/create', function () {
+    return view('finance.factuur_create');
+});
+
+Route::get('/inkoop', function () {
+    return view('inkoop.index');
+});
+
+Route::get('/maintenance', function () {
+    return view('maintenance.index');
+});
+
+Route::get('/onderhoud', function () {
+    return view('sales.index');
+});
+
+Route::get('/webshop', function () {
+    return view('webshop.index');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
