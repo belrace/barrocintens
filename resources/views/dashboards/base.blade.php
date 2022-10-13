@@ -17,8 +17,6 @@
             rel="stylesheet"
         />
     </head>
-
-
 <body>
 <header>
         <nav>
@@ -34,24 +32,24 @@
                 <div class="sidebar-content">
                 <ul class="lists">
                     <li class="list">
-                    <a href="/finance" class="nav-link">
+                    <a href="/dashboard/finance" class="nav-link">
                         <i class="bx bx-home-alt icon"></i>
                         <span class="link">Dashboard</span>
                     </a>
                     </li>
                     <li class="list">
-                    <a href="/finance/facturen" class="nav-link">
+                    <a href="/dashboard/finance/facturen" class="nav-link">
                         <i class='bx bx-notepad icon'></i>
                         <span class="link">Facturen</span>
                     </a>
                     </li>
                     <li class="list">
-                    <a href="/finance/begroting" class="nav-link">
+                    <a href="/dashboard/finance/begroting" class="nav-link">
                         <i class='bx bx-euro icon'></i>
                         <span class="link">begroting</span>
                     </a>
                     <li class="list">
-                    <a href="/finance/betalingsachterstanden" class="nav-link">
+                    <a href="/dashboard/finance/betalingsachterstanden" class="nav-link">
                         <i class='bx bx-edit-alt icon'></i>
                         <span class="link">betalingsachterstanden</span>
                     </a>
@@ -60,16 +58,16 @@
 
                 <div class="bottom-cotent">
                     <li class="list">
-                    <a href="#" class="nav-link">
-                        <i class="bx bx-cog icon"></i>
-                        <span class="link">Settings</span>
+                    <a href="/user/profile" class="nav-link">
+                        <i class='bx bx-user-circle icon'></i>
+                        <span class="link">Profile</span>
                     </a>
                     </li>
                     <li class="list">
-                    <a href="#" class="nav-link">
-                        <i class="bx bx-log-out icon"></i>
-                        <span class="link">Logout</span>
-                    </a>
+                        <a href="{{ route('logout')}}" class="nav-link">
+                            <i class="bx bx-log-out icon"></i>
+                            <span class="link">Logout</span>
+                        </a>
                     </li>
                 </div>
                 </div>

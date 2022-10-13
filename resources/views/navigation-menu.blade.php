@@ -39,17 +39,17 @@
                                 <div class="w-60">
                                     <!-- Team Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Manage Team') }}
+                                        {{ __('Beheer Afdeling') }}
                                     </div>
 
                                     <!-- Team Settings -->
                                     <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                        {{ __('Team Settings') }}
+                                        {{ __('Afdelings Instellingen') }}
                                     </x-jet-dropdown-link>
 
                                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                         <x-jet-dropdown-link href="{{ route('teams.create') }}">
-                                            {{ __('Create New Team') }}
+                                            {{ __('Maak nieuwe afdeling') }}
                                         </x-jet-dropdown-link>
                                     @endcan
 
@@ -57,11 +57,11 @@
 
                                     <!-- Team Switcher -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Switch Teams') }}
+                                        {{ __('Alle Afdelingen') }}
                                     </div>
 
                                     @foreach (Auth::user()->allTeams() as $team)
-                                        <x-jet-switchable-team :team="$team" />
+                                        <x-jet-dropdown-link href="/dashboard/afdeling/{{ $team->id }}">{{ $team->name }}</x-jet-dropdown-link>
                                     @endforeach
                                 </div>
                             </x-slot>
