@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('maintenance_appointments', function (Blueprint $table) {
             $table->id();
+            $table->integer('company_id');
+            $table->longText('remark');
+            $table->dateTime('date_added');
             $table->timestamps();
         });
     }
