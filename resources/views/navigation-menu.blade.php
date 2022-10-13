@@ -6,20 +6,26 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img src="../img/barroc1.png" width="80%" alt="">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Welkom') }}
                     </x-jet-nav-link>
+                    @if(Auth::user()->id == 1)
+                        <x-jet-nav-link href="{{ route('dashboard.user.create') }}" :active="request()->routeIs('dashboard.user.create')">
+                            {{ __('Maak niewe gebruiker aan') }}
+                        </x-jet-nav-link>
+                    @endif
+                    <x-jet-nav-link href="{{ route('dashboard.categorys.index') }}" :active="request()->routeIs('dashboard.categorys.index')">
+                        {{ __('Overzicht Categorieen') }}
+                    </x-jet-nav-link>
+
                     <x-jet-nav-link href="{{ route('dashboard.products.index') }}" :active="request()->routeIs('dashboard.products.index')">
                         {{ __('Overzicht producten') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard.products.index') }}" :active="request()->routeIs('dashboard.products.index')">
-                        {{ __('Overzicht Categorieen') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -32,8 +38,8 @@
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded-md">
                                     <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition">
-                                        {{ Auth::user()->currentTeam->name }}
 
+                                        Afdelingen
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
                                         </svg>
@@ -44,31 +50,39 @@
                             <x-slot name="content">
                                 <div class="w-60">
                                     <!-- Team Management -->
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Beheer Afdeling') }}
-                                    </div>
+                                    @if(Auth::id() == 1)
+                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                            {{ __('Beheer Afdeling') }}
+                                        </div>
 
-                                    <!-- Team Settings -->
-                                    <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                        {{ __('Afdelings Instellingen') }}
-                                    </x-jet-dropdown-link>
-
-                                    @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                        <x-jet-dropdown-link href="{{ route('teams.create') }}">
-                                            {{ __('Maak nieuwe afdeling') }}
+                                        <!-- Team Settings -->
+                                        @if(!empty(Auth::user()->currentTeam->id))
+                                        <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
+                                            {{ __('Afdelings Instellingen') }}
                                         </x-jet-dropdown-link>
-                                    @endcan
+                                        @endif
+                                        @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+                                            <x-jet-dropdown-link href="{{ route('teams.create') }}">
+                                                {{ __('Maak nieuwe afdeling') }}
+                                            </x-jet-dropdown-link>
+                                        @endcan
 
-                                    <div class="border-t border-gray-100"></div>
-
+                                        <div class="border-t border-gray-100"></div>
+                                    @endif
                                     <!-- Team Switcher -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Alle Afdelingen') }}
+                                        {{ __('Uw Afdeling(en)') }}
                                     </div>
+                                    @if(Auth::user()->id == 1)
+                                        @foreach (App\Models\Team::all() as $team)
+                                            <x-jet-dropdown-link href="/dashboard/afdeling/{{ $team->id }}">{{ $team->name }}</x-jet-dropdown-link>
+                                        @endforeach
+                                    @else
+                                        @foreach (Auth::user()->allTeams() as $team)
+                                            <x-jet-dropdown-link href="/dashboard/afdeling/{{ $team->id }}">{{ $team->name }}</x-jet-dropdown-link>
+                                        @endforeach
+                                    @endif
 
-                                    @foreach (Auth::user()->allTeams() as $team)
-                                        <x-jet-dropdown-link href="/dashboard/afdeling/{{ $team->id }}">{{ $team->name }}</x-jet-dropdown-link>
-                                    @endforeach
                                 </div>
                             </x-slot>
                         </x-jet-dropdown>
@@ -194,9 +208,11 @@
                     </div>
 
                     <!-- Team Settings -->
-                    <x-jet-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
-                        {{ __('Team Settings') }}
-                    </x-jet-responsive-nav-link>
+                    @if(!empty(Auth::user()->currentTeam->id))
+                        <x-jet-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
+                            {{ __('Team Settings') }}
+                        </x-jet-responsive-nav-link>
+                    @endif
 
                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                         <x-jet-responsive-nav-link href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">

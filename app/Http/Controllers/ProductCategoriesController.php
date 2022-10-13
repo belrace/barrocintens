@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\product_categories;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class ProductCategoriesController extends Controller
 {
     //
     public function index(){
-        return view('dashboards.products.show');
+        $catgory = product_categories::all();
+        return view('dashboards.categories.show');
     }
     public function store(){
-        return view('dashboards.products.show');
+        $newcategory = new product_categories();
+        $newcategory->name = Input::get();
+        $newcategory->save();
+        return view('dashboards.categories.show');
     }
+
 }

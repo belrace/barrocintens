@@ -4,6 +4,8 @@ use App\Http\Controllers\afdelingsController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ProductsController;
 use \App\Http\Controllers\ProductCategoriesController;
+use \App\Models\Team;
+use \App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,9 +26,13 @@ Route::group(['prefix' => 'dashboard' , 'middleware' => 'auth', 'as' => 'dashboa
     // rousource routes
     Route::resource('/products', ProductsController::class);
     Route::resource('/categorys', ProductCategoriesController::class);
+    Route::resource('/user', UserController::class);
+
 
     // get routes
+    // deze get werkt als een
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
+
     Route::get('/finance', function () {    return view('dashboards.finance.index')    ;});
     Route::get('/finance/facturen', function () {   return view('dashboards.finance.facturen'); });
     Route::get('/finance/factuur/create', function () {return view('dashboards.finance.factuur_create');});
@@ -37,6 +43,7 @@ Route::group(['prefix' => 'dashboard' , 'middleware' => 'auth', 'as' => 'dashboa
     Route::get('/maintenance', function () {return view('dashboards.maintenance.index');});
     Route::get('/sales', function () {return view('dashboards.sales.index');});
     Route::get('/sales/notes', function () {return view('dashboards.sales.notes');});
+
 });
 
 
