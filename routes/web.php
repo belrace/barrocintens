@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\afdelingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,34 +18,40 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/finance', function () {
-    return view('dashboards.finance.index');
-});
-Route::get('/finance/facturen', function () {
-    return view('dashboards.finance.facturen');
+Route::group(['prefix' => 'dashboard' , 'middleware' => 'auth', 'as' => 'dashboard.'], function() {
+    Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
+
+
+    Route::get('/finance', function () {    return view('dashboards.finance.index')    ;});
+
+    Route::get('/finance/facturen', function () {   return view('dashboards.finance.facturen'); });
+
+    Route::get('/finance/factuur/create', function () {
+        return view('dashboards.finance.factuur_create');
+    });
+    Route::get('/factuur/create', function () {
+        return view('dashboards.finance.factuur_create');
+    });
+    Route::get('/finance/begroting', function () {
+        return view('dashboards.finance.begroting');
+    });
+    Route::get('/finance/betalingsachterstanden', function () {
+        return view('dashboards.finance.betalingsachterstanden');
+    });
+
+    Route::get('/inkoop', function () {
+        return view('dashboards.inkoop.index');
+    });
+
+    Route::get('/maintenance', function () {
+        return view('dashboards.maintenance.index');
+    });
+
+    Route::get('/sales', function () {
+        return view('dashboards.sales.index');
+    });
 });
 
-Route::get('/finance/factuur/create', function () {
-    return view('dashboards.finance.factuur_create');
-});
-Route::get('/finance/begroting', function () {
-    return view('dashboards.finance.begroting');
-});
-Route::get('/finance/betalingsachterstanden', function () {
-    return view('dashboards.finance.betalingsachterstanden');
-});
-
-Route::get('/inkoop', function () {
-    return view('dashboards.inkoop.index');
-});
-
-Route::get('/maintenance', function () {
-    return view('dashboards.maintenance.index');
-});
-
-Route::get('/onderhoud', function () {
-    return view('dashboards.sales.index');
-});
 
 Route::get('/webshop', function () {
     return view('webshop.index');
