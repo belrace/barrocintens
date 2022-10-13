@@ -58,16 +58,16 @@
 
                 <div class="bottom-cotent">
                     <li class="list">
-                    <a href="#" class="nav-link">
-                        <i class="bx bx-cog icon"></i>
-                        <span class="link">Settings</span>
+                    <a href="/user/profile" class="nav-link">
+                        <i class='bx bx-user-circle icon'></i>
+                        <span class="link">Profile</span>
                     </a>
                     </li>
                     <li class="list">
-                    <a href="#" class="nav-link">
-                        <i class="bx bx-log-out icon"></i>
-                        <span class="link">Logout</span>
-                    </a>
+                        <a href="{{ route('logout')}}" class="nav-link">
+                            <i class="bx bx-log-out icon"></i>
+                            <span class="link">Logout</span>
+                        </a>
                     </li>
                 </div>
                 </div>
