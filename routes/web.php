@@ -42,8 +42,11 @@ Route::get('/maintenance', function () {
     return view('dashboards.maintenance.index');
 });
 
-Route::get('/onderhoud', function () {
+Route::get('/sales', function () {
     return view('dashboards.sales.index');
+});
+Route::get('/sales/notes', function () {
+    return view('dashboards.sales.notes');
 });
 
 Route::get('/webshop', function () {
