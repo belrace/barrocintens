@@ -12,15 +12,11 @@ class afdelingsController extends Controller
     public function getafdeling($afdelingid)
     {
         $afdeling = team::findOrfail($afdelingid);
-        if (Auth::user()->currentTeam->id == $afdeling->id){
+        if (Auth::user()->currentTeam->id == $afdeling->id) {
             $afdelingname = $afdeling->name;
             return redirect('/dashboard/' . $afdelingname);
-        }
-        else{
+        } else {
             return "je hoort niet bij deze afdeling!";
         }
-
-
     }
-
 }

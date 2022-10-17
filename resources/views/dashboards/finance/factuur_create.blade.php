@@ -1,144 +1,147 @@
 @extends('dashboards/base')
 
-@section('app')
-
+@section('sidebar')
+    @include('dashboards.finance.sidebar')
 @endsection
 
+@section('app')
+@endsection
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>factuur</title>
-<style>
-  
-     
-     *{
-        color: white;
-        text-decoration: none;
-      }
-      body{
-          background-color: #d5d5d5;
-          font-family: Arial, sans-serif;
-      }
+    <style>
+        * {
+            color: white;
+            text-decoration: none;
+        }
 
-      .box-fac {
-        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-        max-width: 1080px;
-        height:1000px;
-        margin: auto;
-        text-align: center;
-        font-family: arial;
-        background-color: #fff;
-        margin-top:150px;
-        margin-bottom:20px;
-        color: black;
-        padding-top: 40px;
-        padding-bottom: 40px;
-      }
-      .txtfactuur{
-        font-size:40px;
-        color:black;
-        margin-top:-920px;
-        margin-left:300px;
-      }
+        body {
+            background-color: #d5d5d5;
+            font-family: Arial, sans-serif;
+        }
 
-      .adrescust{
-        font-size:15px;
-        color:black;
-        margin-top:0px;
-        margin-left:300px;
-      }
+        .box-fac {
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            max-width: 1080px;
+            height: 1000px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+            background-color: #fff;
+            margin-top: 150px;
+            margin-bottom: 20px;
+            color: black;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
 
-      .adresbarroc{
-        font-size:15px;
-        color:black;
-        margin-top: -55px;
-        margin-left: 1080px;
-      }
+        .txtfactuur {
+            font-size: 40px;
+            color: black;
+            margin-top: -920px;
+            margin-left: 300px;
+        }
 
-      .logofact{
-        height:20px;
-        width:20px;
-        margin-top: -220px;
-        margin-left: 1080px;
-      }
+        .adrescust {
+            font-size: 15px;
+            color: black;
+            margin-top: 0px;
+            margin-left: 300px;
+        }
 
-      .infofact{
-        color:black;
-        height:20px;
-        width:300px;
-        margin-top:55px;
-        margin-left:300px;
-      }
+        .adresbarroc {
+            font-size: 15px;
+            color: black;
+            margin-top: -55px;
+            margin-left: 1080px;
+        }
 
-      .line1fact{
-        background: #ffd700;
-        margin-top:250px;
-        margin-left:300px;
-        height: 5px;
-        width: 882px;
-      }
+        .logofact {
+            height: 20px;
+            width: 20px;
+            margin-top: -220px;
+            margin-left: 1080px;
+        }
 
-      .oderinfo1{
-        font-size:15px;
-        color:black;
-        margin-top:20px;
-        margin-left:300px;
-      }
+        .infofact {
+            color: black;
+            height: 20px;
+            width: 300px;
+            margin-top: 55px;
+            margin-left: 300px;
+        }
 
-      .oderinfo2{
-        font-size:15px;
-        color:black;
-        margin-top: -55px;
-        margin-left: 480px;
-      }
+        .line1fact {
+            background: #ffd700;
+            margin-top: 250px;
+            margin-left: 300px;
+            height: 5px;
+            width: 882px;
+        }
 
-      .oderinfo3{
-        font-size:15px;
-        color:black;
-        margin-top: -55px;
-        margin-left: 620px;
-      }
+        .oderinfo1 {
+            font-size: 15px;
+            color: black;
+            margin-top: 20px;
+            margin-left: 300px;
+        }
 
-      .oderinfo4{
-        font-size:15px;
-        color:black;
-        margin-top: -55px;
-        margin-left: 900px;
-      }
+        .oderinfo2 {
+            font-size: 15px;
+            color: black;
+            margin-top: -55px;
+            margin-left: 480px;
+        }
 
-      .oderinfo5{
-        font-size:15px;
-        color:black;
-        margin-top: -55px;
-        margin-left: 1120px;
-      }
+        .oderinfo3 {
+            font-size: 15px;
+            color: black;
+            margin-top: -55px;
+            margin-left: 620px;
+        }
 
-      .oderinfo6{
-        font-size:15px;
-        color:black;
-        margin-top: 130px;
-        margin-left: 300px;
-      }
+        .oderinfo4 {
+            font-size: 15px;
+            color: black;
+            margin-top: -55px;
+            margin-left: 900px;
+        }
 
-      .oderinfo7{
-        font-size:15px;
-        color:black;
-        margin-top: -55px;
-        margin-left: 1120px;
-      }
+        .oderinfo5 {
+            font-size: 15px;
+            color: black;
+            margin-top: -55px;
+            margin-left: 1120px;
+        }
 
-      .oderinfo8{
-        font-size:15px;
-        color:black;
-        margin-top: 90px;
-        margin-left: 300px;
-      }
-     
-</style>
+        .oderinfo6 {
+            font-size: 15px;
+            color: black;
+            margin-top: 130px;
+            margin-left: 300px;
+        }
+
+        .oderinfo7 {
+            font-size: 15px;
+            color: black;
+            margin-top: -55px;
+            margin-left: 1120px;
+        }
+
+        .oderinfo8 {
+            font-size: 15px;
+            color: black;
+            margin-top: 90px;
+            margin-left: 300px;
+        }
+    </style>
 </head>
+
 <body>
 
 
@@ -150,58 +153,59 @@
     </div>
 
     <div class="adrescust">
-        Prof. Willard <br/>
-        Spinka MD 989 <br/>
-        Reichel Pine Suite 978 <br/>
+        Prof. Willard <br />
+        Spinka MD 989 <br />
+        Reichel Pine Suite 978 <br />
         84026 North Michelle
     </div>
 
     <div class="adresbarroc">
-        Barroc Intens <br/>
-        Terheijdenseweg 350 <br/>
+        Barroc Intens <br />
+        Terheijdenseweg 350 <br />
         4826 AA Breda
     </div>
 
     <div class="infofact">
-        Periode: december 2018<br/>
-        Klantnr: 15 Contractnr<br/>
+        Periode: december 2018<br />
+        Klantnr: 15 Contractnr<br />
         6 Factuurnr: 19
     </div>
 
     <div class="logofact">
-        <img src="https://filecache.itslearning.com/prod.eu-central-1.filerepo/d74d/a9c1-9b47-4dc4-a4f8-83c5d63c3930?response-cache-control=max-age%3D899&response-content-type=image%2Fpng&response-content-disposition=inline%3B%20filename%3D%22Logo2_klein.png%22%3B&version=1&isDownloadRequest=0&expires=2022-10-13T08%3A55%3A12Z&sign=kVZM1no8xWvQ1fa2w4loIIw%2FqFI8H4h66pmJs04%2Bh%2BE%3D">
+        <img
+            src="https://filecache.itslearning.com/prod.eu-central-1.filerepo/d74d/a9c1-9b47-4dc4-a4f8-83c5d63c3930?response-cache-control=max-age%3D899&response-content-type=image%2Fpng&response-content-disposition=inline%3B%20filename%3D%22Logo2_klein.png%22%3B&version=1&isDownloadRequest=0&expires=2022-10-13T08%3A55%3A12Z&sign=kVZM1no8xWvQ1fa2w4loIIw%2FqFI8H4h66pmJs04%2Bh%2BE%3D">
     </div>
 
     <div class="line1fact">
     </div>
 
     <div class="oderinfo1">
-        aantal:<br/>
-        2x<br/>
+        aantal:<br />
+        2x<br />
         10x
     </div>
-    
+
     <div class="oderinfo2">
-        nummer:<br/>
-        65283424<br/>
+        nummer:<br />
+        65283424<br />
         54576445
     </div>
 
     <div class="oderinfo3">
-        Omschrijving:<br/>
-        Koffiemachine 1<br/>
+        Omschrijving:<br />
+        Koffiemachine 1<br />
         Koffieboon boon type 1
     </div>
 
     <div class="oderinfo4">
-        prijs<br/>
-        €2600,75<br/>
+        prijs<br />
+        €2600,75<br />
         €43,55
     </div>
 
     <div class="oderinfo5">
-        subtotaal<br/>
-        €5201,50 <br/>
+        subtotaal<br />
+        €5201,50 <br />
         €435,50
     </div>
 
@@ -210,7 +214,7 @@
     </div>
 
     <div class="oderinfo7">
-        €5637,- 
+        €5637,-
     </div>
 
     <div class="oderinfo8">
@@ -218,4 +222,5 @@
     </div>
 
 </body>
+
 </html>
