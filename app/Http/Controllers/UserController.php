@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -24,7 +26,8 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('dashboards.user.show');
+        $teams = Team::all();
+        return view('dashboards.user.show')->with('teams', $teams);
     }
 
     /**
@@ -35,7 +38,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $naam = $request->get('name');
+      $email = $request->get('email');
+      $wachtwoord = $request->get('password');
+      $afdelingsid = $request->get('afdelingsid');
+
+        $request->validate([
+            $naam => ['required', 'string', 'max:255'],
+            $email => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            $afdelingsid => 'required',
+            'password' => 'required',
+            'password_confirm' => 'required|same:password',
+        ]);
+
+        $newuser = new User();
+        $newuser->name = $naam;
+        $newuser->email = $email;
+        $newuser->password = $wachtwoord;
+        $newuser->current_team_id = $afdelingsid;
+        $newuser->save();
+
+        return redirect('dashboard/user/create');
     }
 
     /**

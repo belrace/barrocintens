@@ -9,14 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class afdelingsController extends Controller
 {
 
-    public function getafdeling($afdelingid)
+    public function getafdeling($afdelingsid)
     {
-        $afdeling = team::findOrfail($afdelingid);
-        if (Auth::user()->currentTeam->id == $afdeling->id) {
-            $afdelingname = $afdeling->name;
-            return redirect('/dashboard/' . $afdelingname);
-        } else {
-            return "je hoort niet bij deze afdeling!";
-        }
+        $afdeling = Team::findOrfail($afdelingsid);
+        $afdelingname = $afdeling->name;
+        return redirect('/dashboard/' . $afdelingname);
     }
 }
