@@ -75,7 +75,7 @@
 
       .line1fact{
         background: #ffd700;
-        margin-top:250px;
+        margin-top:300px;
         margin-left:300px;
         height: 5px;
         width: 882px;
@@ -164,12 +164,13 @@
 
     <div class="infofact">
         Periode: december 2018<br/>
-        Klantnr: 15 Contractnr<br/>
-        6 Factuurnr: 19
+        Klantnr: 15 <br/>
+        Contractnr: 6<br/>
+        Factuurnr: 19
     </div>
 
     <div class="logofact">
-        <img src="https://filecache.itslearning.com/prod.eu-central-1.filerepo/d74d/a9c1-9b47-4dc4-a4f8-83c5d63c3930?response-cache-control=max-age%3D899&response-content-type=image%2Fpng&response-content-disposition=inline%3B%20filename%3D%22Logo2_klein.png%22%3B&version=1&isDownloadRequest=0&expires=2022-10-13T08%3A55%3A12Z&sign=kVZM1no8xWvQ1fa2w4loIIw%2FqFI8H4h66pmJs04%2Bh%2BE%3D">
+        <img src="barroc1.jpg">
     </div>
 
     <div class="line1fact">
