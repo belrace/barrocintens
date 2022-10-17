@@ -33,6 +33,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     // deze get werkt als een
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
 
+
     Route::get('/finance', function () {
         return view('dashboards.finance.index');
     });
