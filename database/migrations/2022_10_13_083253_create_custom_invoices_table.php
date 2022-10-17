@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('custom_invoices', function (Blueprint $table) {
             $table->id();
+            $table->dateTime('date');
+            $table->dateTime('paid_at');
+            $table->integer('company_id');
             $table->timestamps();
         });
     }

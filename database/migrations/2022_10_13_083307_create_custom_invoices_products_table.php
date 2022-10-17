@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('custom_invoices_products', function (Blueprint $table) {
             $table->id();
+            $table->integer('product_id');
+            $table->integer('amount');
+            $table->decimal('price_per_product');
             $table->timestamps();
         });
     }

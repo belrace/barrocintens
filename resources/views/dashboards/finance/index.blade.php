@@ -1,5 +1,8 @@
 @extends('dashboards/base')
 
-@section('app')
+@section('sidebar')
+    @include('dashboards.finance.sidebar')
+@endsection
 
+@section('app')
 @endsection

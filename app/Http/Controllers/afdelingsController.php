@@ -4,17 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class afdelingsController extends Controller
 {
 
-    public function getafdeling($afdelingid)
+    public function getafdeling($afdelingsid)
     {
-        $afdeling = team::findOrfail($afdelingid);
+        $afdeling = Team::findOrfail($afdelingsid);
         $afdelingname = $afdeling->name;
-
-        return redirect('/dashboard/'. $afdelingname);
-
+        return redirect('/dashboard/' . $afdelingname);
     }
-
 }
