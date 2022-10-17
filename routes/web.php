@@ -29,41 +29,21 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::resource('/user', UserController::class);
 
 
-    // get routes
-    // deze get werkt als een
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
 
 
-    Route::get('/finance', function () {
-        return view('dashboards.finance.index');
-    });
-    Route::get('/finance/facturen', function () {
-        return view('dashboards.finance.facturen');
-    });
-    Route::get('/finance/factuur/create', function () {
-        return view('dashboards.finance.factuur_create');
-    });
-    Route::get('/factuur/create', function () {
-        return view('dashboards.finance.factuur_create');
-    });
-    Route::get('/finance/begroting', function () {
-        return view('dashboards.finance.begroting');
-    });
-    Route::get('/finance/betalingsachterstanden', function () {
-        return view('dashboards.finance.betalingsachterstanden');
-    });
-    Route::get('/inkoop', function () {
-        return view('dashboards.inkoop.index');
-    });
-    Route::get('/maintenance', function () {
-        return view('dashboards.maintenance.index');
-    });
-    Route::get('/sales', function () {
-        return view('dashboards.sales.index');
-    });
-    Route::get('/sales/notes', function () {
-        return view('dashboards.sales.notes');
-    });
+
+//    Route::get('/finance', [afdelingsController::class, 'viewafdeling']);
+//    Route::get('/finance/facturen', function () {   return view('dashboards.finance.facturen'); });
+//    Route::get('/finance/factuur/create', function () {return view('dashboards.finance.factuur_create');});
+//    Route::get('/factuur/create', function () {return view('dashboards.finance.factuur_create');});
+//    Route::get('/finance/begroting', function () {return view('dashboards.finance.begroting');});
+//    Route::get('/finance/betalingsachterstanden', function () {return view('dashboards.finance.betalingsachterstanden');});
+//    Route::get('/inkoop', function () {return view('dashboards.inkoop.index');});
+//    Route::get('/maintenance', function () {return view('dashboards.maintenance.index');});
+//    Route::get('/sales', function () {return view('dashboards.sales.index');});
+//    Route::get('/sales/notes', function () {return view('dashboards.sales.notes');});
+
 });
 
 
