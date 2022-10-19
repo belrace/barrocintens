@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\notifications;
 use Illuminate\Http\Request;
 use App\Models\barrocintens;
 
 class NotificationsController extends Controller
 {
-    public function getnotification(notification $notification)
+    public function getNotifications()
     {
-        $notification = $notification->get();
-        return view('welcome',compact('notification'));
+        $notifications = notifications::all();
+
+        return view('dashboards.maintenance.index', ['notifications' => $notifications,]);
     }
 }
