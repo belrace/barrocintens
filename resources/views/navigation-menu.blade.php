@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="/">
-                        <img src="../img/barroc1.png" width="80%" alt="">
+                        <img src="/img/barroc1.png" width="80%" alt="">
                     </a>
                 </div>
 

@@ -13,6 +13,12 @@ class afdelingsController extends Controller
     {
         $afdeling = Team::findOrfail($afdelingsid);
         $afdelingname = $afdeling->name;
-        return redirect('/dashboard/' . $afdelingname);
+        return view('dashboards.' . $afdeling->name . '.index')->with('afdeling', $afdeling);
+    }
+
+    public function viewafdeling($afdelingsid)
+    {
+        $afdeling = Team::findOrfail($afdelingsid);
+        return view('dashboards.base')->with($afdeling);
     }
 }

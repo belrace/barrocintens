@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $users = [
-            ['id' => 1, 'name' => 'AdminBarrocIntens', 'email' => 'AdminTeam@BarrocIntens.nl', 'password' => bcrypt('AdminBarroc'), 'current_team_id' =>'1'],
+            ['id' => 1, 'name' => 'AdminBarrocIntens', 'email' => 'AdminTeam@BarrocIntens.nl', 'password' => bcrypt('AdminBarroc'), 'current_team_id' => '1'],
         ];
         DB::table('users')->insert($users);
         $teams = [
@@ -35,6 +35,5 @@ class DatabaseSeeder extends Seeder
             ['id' => 5, 'user_id' => '1', 'name' => 'sales', 'personal_team' => '0'],
         ];
         DB::table('teams')->insert($teams);
-
     }
 }

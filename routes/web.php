@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\afdelingsController;
+use App\Http\Controllers\NotesController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ProductsController;
 use \App\Http\Controllers\ProductCategoriesController;
@@ -27,12 +28,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::resource('/products', ProductsController::class);
     Route::resource('/categorys', ProductCategoriesController::class);
     Route::resource('/user', UserController::class);
+    Route::resource('/notes', NotesController::class);
 
-
-    // get routes
-    // deze get werkt als een
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
-
 
     Route::get('/finance', function () {
         return view('dashboards.finance.index');
@@ -55,15 +53,17 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('/inkoop', function () {
         return view('dashboards.inkoop.index');
     });
+    // Route::get('/inkoop', [InkoopController::class, 'getinkoop']);
     Route::get('/maintenance', function () {
         return view('dashboards.maintenance.index');
     });
     Route::get('/sales', function () {
         return view('dashboards.sales.index');
     });
-    Route::get('/sales/notes', function () {
-        return view('dashboards.sales.notes');
-    });
+    // Route::get('/sales/notes', function () {
+    //     return view('dashboards.sales.notes');
+    // });
+    Route::get('/sales/notes', [NotesController::class, 'getcompanies']);
 });
 
 
