@@ -1,4 +1,6 @@
-<x-app-layout>
+@extends('dashboards/inkoop/index')
+
+@section('app')
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -35,6 +37,7 @@
                             </h3>
                             <form class="space-y-6" action="{{ route('dashboard.products.store') }}" method="post"
                                 enctype="multipart/form-data">
+
                                 @csrf
                                 <div>
                                     <label for="productname"
@@ -74,15 +77,70 @@
                                     </select>
                                 </div>
 
-                                <button type="submit"
-                                    class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Voeg
-                                    product toe</button>
+                                <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Opslaan</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="overflow-x-auto relative">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="py-3 px-6">
+                            Product naam
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Beschrijving
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Afbeelding
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Categorie
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Price
+                        </th>
+                        <th colspan="2" scope="col" class="py-3 px-6 text-center ">
+                            Options
+                        </th>
 
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($products as $product)
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $product->name }}
+                            </th>
+                            <td class="py-4 px-6">
+                                {{ $product->description }}
+                            </td>
+                            <td class="py-4 px-6">
+                                <img src="/img/{{$product->image_path}}" alt="">
+                            </td>
+                            <td class="py-4 px-6">
+                                {{ $product->category->name }}
+                            </td>
+                            <td class="py-4 px-6">
+                                €{{ $product->price }}
+                            </td>
+                            <td class="py-4 px-6">
+                                <a href="{{ route('dashboard.products.edit', $product->id) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Wijzig</a>
+                            </td>
+                            <td class="py-4 px-6">
+                                <form action="{{ route('dashboard.products.destroy', $product->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Verwijder</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
 
 
 
@@ -91,4 +149,4 @@
         </div>
     </div>
     </div>
-</x-app-layout>
+@endsection

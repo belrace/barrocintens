@@ -5,7 +5,7 @@
 @endsection
 
 @section('app')
-    {{-- <!DOCTYPE html>
+    <!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -27,27 +27,46 @@
             .box-fac {
                 box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
                 max-width: 1080px;
-                height: 1000px;
+                /*height: 100px;*/
                 margin: auto;
                 text-align: center;
                 font-family: arial;
                 background-color: #fff;
-                margin-top: 150px;
-                margin-bottom: 20px;
+                margin-bottom: 1px;
                 color: black;
-                padding-top: 40px;
+                padding-top: 15px;
                 padding-bottom: 40px;
             }
+
+            .noti-txt{
+                color: #000;
+                text-align: left;
+                padding-left: 10px;
+            }
+
+            .white{
+                margin-top:100px;
+            }
+
+
         </style>
     </head>
 
     <body>
 
+    <div class="white">
+        @foreach($notifications as $notification)
         <div class="box-fac">
 
+                <div class="noti-txt">
+                    {{$notification->title}}<br/>
+                    {{$notification->description}}
+                </div>
         </div>
 
+        @endforeach
+        </div>
     </body>
 
-    </html> --}}
+    </html> 
 @endsection
