@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\afdelingsController;
 use App\Http\Controllers\NotesController;
 use Illuminate\Support\Facades\Route;
@@ -54,9 +55,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
         return view('dashboards.inkoop.index');
     });
     // Route::get('/inkoop', [InkoopController::class, 'getinkoop']);
-    Route::get('/maintenance', function () {
-        return view('dashboards.maintenance.index');
-    });
+    // Route::get('/maintenance', function () {
+    //     return view('dashboards.maintenance.index');
+    // });
+    Route::get('/maintenance', [NotificationsController::class, 'getNotifications']);
     Route::get('/sales', function () {
         return view('dashboards.sales.index');
     });
