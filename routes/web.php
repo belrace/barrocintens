@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\afdelingsController;
+use App\Http\Controllers\AppoinmentController;
 use App\Http\Controllers\NotesController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ProductsController;
@@ -29,6 +30,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::resource('/categorys', ProductCategoriesController::class);
     Route::resource('/user', UserController::class);
     Route::resource('/notes', NotesController::class);
+    Route::resource('/appoinment', AppoinmentController::class);
+
+    Route::get('/maintenance/appoinment', function () {
+        return view('dashboards.maintenance.index');
+    });
 
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
 
