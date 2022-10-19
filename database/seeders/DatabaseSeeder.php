@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             ['id' => 1, 'user_id' => '1', 'name' => 'admin', 'personal_team' => '1'],
             ['id' => 2, 'user_id' => '1', 'name' => 'finance', 'personal_team' => '0'],
             ['id' => 3, 'user_id' => '1', 'name' => 'inkoop', 'personal_team' => '0'],
-            ['id' => 4, 'user_id' => '1', 'name' => 'maintenance', 'personal_team' => '0'],
+            ['id' => 4, 'user_id' => '1', 'name' => 'maintenance', 'personal_team' => '0'] ,
             ['id' => 5, 'user_id' => '1', 'name' => 'sales', 'personal_team' => '0'],
         ];
         DB::table('teams')->insert($teams);
