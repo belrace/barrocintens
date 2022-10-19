@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('dashboards/inkoop/index')
+    @section('app')
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -42,13 +43,56 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
+                <div class="overflow-x-auto relative">
+                    <table class="text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="py-3 px-6">
+                                    Product categorie
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Alleen voor medewerker
+                                </th>
+                                <th scope="col" colspan="2" class="py-3 px-6 text-center">
+                                    Options
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($categories as $category)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $category->name }}
+                                </th>
+                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    @if($category->is_employee_only == 1) Ja
+                                    @else Nee
+                                    @endif
+                                </th>
+                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Wijzig</button>
+                                </th>
+                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <form action="{{ route('dashboard.categorys.destroy', $category->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Verwijder</button>
+                                    </form>
+                                </th>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
         </div>
     </div>
     </div>
-</x-app-layout>
+    @endsection
+
+<style>
+    .categorie{
+        width: 400px;
+    }
+    .btncategorie{
+        font-size: large;
+    }
+</style>

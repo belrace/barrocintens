@@ -27,11 +27,15 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
 
     // rousource routes
     Route::resource('/products', ProductsController::class);
+        Route::get('/inkoop/product/add', [ProductsController::class, 'index']);
+
     Route::resource('/categorys', ProductCategoriesController::class);
+        Route::get('/inkoop/product/edit', [ProductCategoriesController::class, 'index']);
     Route::resource('/user', UserController::class);
     Route::resource('/notes', NotesController::class);
 
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
+
 
     Route::get('/finance', function () {
         return view('dashboards.finance.index');
@@ -62,10 +66,15 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('/sales', function () {
         return view('dashboards.sales.index');
     });
+
     // Route::get('/sales/notes', function () {
     //     return view('dashboards.sales.notes');
     // });
     Route::get('/sales/notes', [NotesController::class, 'getcompanies']);
+
+
+
+
 });
 
 
@@ -84,12 +93,3 @@ Route::middleware([
 });
 
 
-
-
-Route::get('/test', function () {
-    return view('test.test');
-});
-
-Route::get('/testnaar', function () {
-    return view('test.testnaar');
-});

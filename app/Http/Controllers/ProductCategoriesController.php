@@ -10,8 +10,8 @@ class ProductCategoriesController extends Controller
 {
     //
     public function index(){
-        $catgory = product_categories::all();
-        return view('dashboards.categories.show');
+        $categories = product_categories::all();
+        return view('dashboards.categories.show')->with('categories', $categories);
     }
     public function store(Request $request){
         $newcategory = new product_categories();
@@ -24,7 +24,12 @@ class ProductCategoriesController extends Controller
             $newcategory->is_employee_only = 1;
         }
         $newcategory->save();
-        return view('dashboards.categories.show');
+        return redirect(route('dashboard.categorys.index'));
+    }
+    public function destroy($id)
+    {
+        product_categories::find($id)->delete();
+        return redirect(route('dashboard.categorys.index'));
     }
 
 }

@@ -20,13 +20,6 @@
                             {{ __('Maak niewe gebruiker aan') }}
                         </x-jet-nav-link>
                     @endif
-                    <x-jet-nav-link href="{{ route('dashboard.categorys.index') }}" :active="request()->routeIs('dashboard.categorys.index')">
-                        {{ __('Overzicht Categorieen') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="{{ route('dashboard.products.index') }}" :active="request()->routeIs('dashboard.products.index')">
-                        {{ __('Overzicht producten') }}
-                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -115,7 +108,6 @@
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
                             </div>
-
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
