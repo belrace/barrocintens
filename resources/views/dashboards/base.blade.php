@@ -19,7 +19,6 @@
 
 <body>
     <header>
-        @if($afdeling->name == 'finance')
         <nav>
             <div class="logo">
                 <i class="bx bx-menu menu-icon"></i>
@@ -32,32 +31,7 @@
                 </div>
                 <div class="sidebar-content">
                     <div>
-                        <ul class="lists">
-                            <li class="list">
-                                <a href="/dashboard/finance" class="nav-link">
-                                    <i class="bx bx-home-alt icon"></i>
-                                    <span class="link">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="list">
-                                <a href="/dashboard/finance/facturen" class="nav-link">
-                                    <i class='bx bx-notepad icon'></i>
-                                    <span class="link">Facturen</span>
-                                </a>
-                            </li>
-                            <li class="list">
-                                <a href="/dashboard/finance/begroting" class="nav-link">
-                                    <i class='bx bx-euro icon'></i>
-                                    <span class="link">begroting</span>
-                                </a>
-                            </li>
-                            <li class="list">
-                                <a href="/dashboard/finance/betalingsachterstanden" class="nav-link">
-                                    <i class='bx bx-edit-alt icon'></i>
-                                    <span class="link">betalingsachterstanden</span>
-                                </a>
-                            </li>
-                        </ul>
+                        @yield('sidebar')
                     </div>
                     <div class="bottom-cotent">
                         <li class="list">
@@ -76,133 +50,10 @@
                 </div>
             </div>
         </nav>
-        @elseif($afdeling->name == 'inkoop')
-        <nav>
-            <div class="logo">
-                <i class="bx bx-menu menu-icon"></i>
-                <span class="logo-name">Barroc Intens</span>
-            </div>
-            <div class="sidebar">
-                <div class="logo">
-                    <i class="bx bx-menu menu-icon"></i>
-                    <span class="logo-name">Barroc Intens</span>
-                </div>
-                <div class="sidebar-content">
-                    <div>
-                        <ul class="lists">
-                            <li class="list">
-                                <a href="/dashboard/inkoop" class="nav-link">
-                                    <i class="bx bx-home-alt icon"></i>
-                                    <span class="link">Dashboard</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bottom-cotent">
-                        <li class="list">
-                            <a href="/user/profile" class="nav-link">
-                                <i class='bx bx-user-circle icon'></i>
-                                <span class="link">Profile</span>
-                            </a>
-                        </li>
-                        <li class="list">
-                            <a href="{{ route('logout')}}" class="nav-link">
-                                <i class="bx bx-log-out icon"></i>
-                                <span class="link">Logout</span>
-                            </a>
-                        </li>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        @elseif($afdeling->name == 'maintenance')
-        <nav>
-            <div class="logo">
-                <i class="bx bx-menu menu-icon"></i>
-                <span class="logo-name">Barroc Intens</span>
-            </div>
-            <div class="sidebar">
-                <div class="logo">
-                    <i class="bx bx-menu menu-icon"></i>
-                    <span class="logo-name">Barroc Intens</span>
-                </div>
-                <div class="sidebar-content">
-                    <div>
-                        <ul class="lists">
-                            <li class="list">
-                                <a href="/dashboard/maintenance" class="nav-link">
-                                    <i class="bx bx-home-alt icon"></i>
-                                    <span class="link">Dashboard</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bottom-cotent">
-                        <li class="list">
-                            <a href="/user/profile" class="nav-link">
-                                <i class='bx bx-user-circle icon'></i>
-                                <span class="link">Profile</span>
-                            </a>
-                        </li>
-                        <li class="list">
-                            <a href="{{ route('logout')}}" class="nav-link">
-                                <i class="bx bx-log-out icon"></i>
-                                <span class="link">Logout</span>
-                            </a>
-                        </li>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        @elseif($afdeling->name == 'sales')
-        <nav>
-            <div class="logo">
-                <i class="bx bx-menu menu-icon"></i>
-                <span class="logo-name">Barroc Intens</span>
-            </div>
-            <div class="sidebar">
-                <div class="logo">
-                    <i class="bx bx-menu menu-icon"></i>
-                    <span class="logo-name">Barroc Intens</span>
-                </div>
-                <div class="sidebar-content">
-                    <div>
-                        <ul class="lists">
-                            <li class="list">
-                                <a href="/dashboard/sales" class="nav-link">
-                                    <i class="bx bx-home-alt icon"></i>
-                                    <span class="link">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="list">
-                                <a href="/dashboard/sales/notes" class="nav-link">
-                                    <i class='bx bx-notepad icon'></i>
-                                    <span class="link">notes</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bottom-cotent">
-                        <li class="list">
-                            <a href="/user/profile" class="nav-link">
-                                <i class='bx bx-user-circle icon'></i>
-                                <span class="link">Profile</span>
-                            </a>
-                        </li>
-                        <li class="list">
-                            <a href="{{ route('logout')}}" class="nav-link">
-                                <i class="bx bx-log-out icon"></i>
-                                <span class="link">Logout</span>
-                            </a>
-                        </li>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        @endif
+
         <section class="overlay"></section>
     </header>
-    <div>
+    <div class="main-sec">
         @yield('app')
     </div>
 </body>

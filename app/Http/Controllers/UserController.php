@@ -38,10 +38,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-      $naam = $request->get('name');
-      $email = $request->get('email');
-      $wachtwoord = $request->get('password');
-      $afdelingsid = $request->get('afdelingsid');
+        $naam = $request->get('name');
+        $email = $request->get('email');
+        $wachtwoord = $request->get('password');
+        $afdelingsid = $request->get('afdelingsid');
 
         $request->validate([
             $naam => ['required', 'string', 'max:255'],

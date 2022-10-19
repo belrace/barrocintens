@@ -6,6 +6,7 @@
 
 @section('app')
 @endsection
+
 <!DOCTYPE html>
 <html lang="en">
 
