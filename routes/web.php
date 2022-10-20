@@ -9,6 +9,8 @@ use \App\Http\Controllers\ProductsController;
 use \App\Http\Controllers\ProductCategoriesController;
 use \App\Models\Team;
 use \App\Http\Controllers\UserController;
+use App\Http\Controllers\WerkbonController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,10 +30,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
 
     // rousource routes
     Route::resource('/products', ProductsController::class);
-        Route::get('/inkoop/product/add', [ProductsController::class, 'index']);
+    Route::get('/inkoop/product/add', [ProductsController::class, 'index']);
 
     Route::resource('/categorys', ProductCategoriesController::class);
-        Route::get('/inkoop/product/edit', [ProductCategoriesController::class, 'index']);
+    Route::get('/inkoop/product/edit', [ProductCategoriesController::class, 'index']);
     Route::resource('/user', UserController::class);
     Route::resource('/notes', NotesController::class);
     Route::resource('/appoinment', AppoinmentController::class);
@@ -69,6 +71,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     //     return view('dashboards.maintenance.index');
     // });
     Route::get('/maintenance', [NotificationsController::class, 'getNotifications']);
+    Route::get('/maintenance/werkbon', [WerkbonController::class, 'getWerkbon']);
+    Route::post('/maintenance/werkbon', [WerkbonController::class, 'store']);
+
+
     Route::get('/sales', function () {
         return view('dashboards.sales.index');
     });
@@ -77,10 +83,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     //     return view('dashboards.sales.notes');
     // });
     Route::get('/sales/notes', [NotesController::class, 'getcompanies']);
-
-
-
-
 });
 
 
@@ -97,5 +99,3 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
-
