@@ -45,7 +45,12 @@
             }
 
             .white{
-                margin-top:100px;
+                margin-top:25px;
+            }
+
+            .title-noti{
+                padding-left:15%;
+                font-size: 25px;
             }
 
 
@@ -53,6 +58,11 @@
     </head>
 
     <body>
+
+    <div class="title-noti">
+            maintenance meldingen:
+    </div>
+
 
     <div class="white">
         @foreach($notifications as $notification)
