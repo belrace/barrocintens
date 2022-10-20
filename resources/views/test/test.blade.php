@@ -1,6 +1,8 @@
 @extends('dashboards/base')
 
 @section('app')
+
+
 <style>
 .button {
   background-color: grey; /* Green */
