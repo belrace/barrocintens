@@ -37,7 +37,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::resource('/appoinment', AppoinmentController::class);
 
     Route::get('/maintenance/appoinment', function () {
-        return view('dashboards.maintenance.index');
+        return view('dashboards.maintenance.appoinment');
     });
 
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
