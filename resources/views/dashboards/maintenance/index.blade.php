@@ -38,6 +38,7 @@
                 padding-bottom: 40px;
             }
 
+
             .noti-txt{
                 color: #000;
                 text-align: left;
@@ -73,6 +74,7 @@
                     {{$notification->description}}
                 </div>
         </div>
+
 
         @endforeach
         </div>
