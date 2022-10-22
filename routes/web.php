@@ -29,8 +29,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
         Route::get('/inkoop/product/add', [ProductsController::class, 'index']);
 
     Route::resource('/categorys', ProductCategoriesController::class);
-        Route::get('/inkoop/product/edit', [ProductCategoriesController::class, 'index']);
+        Route::get('/inkoop/category/add', [ProductCategoriesController::class, 'index']);
     Route::resource('/user', UserController::class);
+        Route::get('/afdeling/1', function () { return redirect('/dashboard/user/create'); });
+
     Route::resource('/notes', NotesController::class);
 
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
