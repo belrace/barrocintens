@@ -12,6 +12,6 @@ class NotificationsController extends Controller
     {
         $notifications = notifications::all();
 
-        return view('dashboards.maintenance.index', ['notifications' => $notifications,]);
+        return view('dashboards.maintenance.index')->with('notifications', $notifications);
     }
 }

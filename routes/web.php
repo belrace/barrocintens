@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MaintenanceAppointmentsController;
 use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\afdelingsController;
 use App\Http\Controllers\AppoinmentController;
@@ -45,6 +46,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
         return view('dashboards.maintenance.appoinment');
     });
 
+    Route::get('/afdeling/4', [NotificationsController::class, 'getNotifications']);
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
 
 
@@ -73,9 +75,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     // Route::get('/maintenance', function () {
     //     return view('dashboards.maintenance.index');
     // });
-    Route::get('/maintenance', [NotificationsController::class, 'getNotifications']);
     Route::get('/maintenance/werkbon', [WerkbonController::class, 'getWerkbon']);
     Route::post('/maintenance/werkbon', [WerkbonController::class, 'store']);
+
+    Route::get('/maintenance/allappointments', [maintenanceappointmentsController::class, 'getAppointments']);
 
 
     Route::get('/sales', function () {
