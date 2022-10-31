@@ -14,6 +14,7 @@ class ProductsController extends Controller
         return view('dashboards.inkoop.products.show')->with(array(
             'categories'=> $categories,
             'products' => $products
+
         ));
     }
     public function store(Request $request){
@@ -25,6 +26,7 @@ class ProductsController extends Controller
             $opslaanproductimg= str_replace(' ', '_', $productimg);
             $request->productimage->move(public_path('img'), $opslaanproductimg);
             $newproduct->image_path = $opslaanproductimg;
+            $newproduct->brand = $request->get('productbrand');
             $newproduct->price = $request->get('price');
             $newproduct->product_category_id = $request->get('categorieid');
         $newproduct->save();
@@ -49,6 +51,7 @@ class ProductsController extends Controller
             $request->productimage->move(public_path('img'), $opslaanproductimg);
             $updateproduct->image_path = $opslaanproductimg;
         }
+        $updateproduct->brand = $request->get('productbrand');
         $updateproduct->price = $request->get('price');
         $updateproduct->product_category_id = $request->get('categorieid');
         $updateproduct->save();

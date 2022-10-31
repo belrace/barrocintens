@@ -6,7 +6,7 @@
         </a>
     </li>
     <li class="list">
-        <a href="/dashboard/inkoop/product/edit" class="nav-link">
+        <a href="/dashboard/inkoop/category/add" class="nav-link">
             <i class='bx bx-plus-circle icon'></i>
             <span class="link">Categorie toevoegen</span>
         </a>

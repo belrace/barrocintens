@@ -108,3 +108,30 @@ nav.open ~ .overlay {
 .main-sec {
     margin-top: 70px;
 }
+.white {
+    margin-top: 100px;
+}
+.appointment-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #212121;
+    margin-top: 100px;
+    margin-inline: 300px;
+    padding: 25px;
+    border-radius: 10px;
+
+}
+.appointment-item{
+    margin-block: 20px;
+    border-bottom: 2px solid #e6c200;
+}
+.appointment-item h2{
+    font-weight: bold;
+    color:  #e6c200;
+}
+.appointment-item .details{
+    margin-left: 25px;
+    color: whitesmoke;
+}

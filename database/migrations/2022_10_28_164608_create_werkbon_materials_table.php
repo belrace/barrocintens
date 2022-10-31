@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('werkbon_materials', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->string('image_path');
-            $table->string('brand');
-            $table->decimal('price');
-            $table->integer('product_category_id');
+            $table->string('amount');
+            $table->longtext('werkbon_id');
+            $table->longtext('material_id');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('werkbon_materials');
     }
 };

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MaintenanceAppointmentsController;
 use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\afdelingsController;
 use App\Http\Controllers\AppoinmentController;
@@ -9,6 +10,11 @@ use \App\Http\Controllers\ProductsController;
 use \App\Http\Controllers\ProductCategoriesController;
 use \App\Models\Team;
 use \App\Http\Controllers\UserController;
+use App\Http\Controllers\WerkbonController;
+use App\Http\Controllers\WerkbonMaterialController;
+use App\Http\Controllers\WorkhourController;
+use App\Models\werkbon;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,18 +34,27 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
 
     // rousource routes
     Route::resource('/products', ProductsController::class);
-        Route::get('/inkoop/product/add', [ProductsController::class, 'index']);
+    Route::get('/inkoop/product/add', [ProductsController::class, 'index']);
 
     Route::resource('/categorys', ProductCategoriesController::class);
-        Route::get('/inkoop/product/edit', [ProductCategoriesController::class, 'index']);
+    Route::get('/inkoop/category/add', [ProductCategoriesController::class, 'index']);
+    Route::get('/inkoop/product/edit', [ProductCategoriesController::class, 'index']);
     Route::resource('/user', UserController::class);
-    Route::resource('/notes', NotesController::class);
-    Route::resource('/appoinment', AppoinmentController::class);
-
-    Route::get('/maintenance/appoinment', function () {
-        return view('dashboards.maintenance.index');
+    Route::get('/afdeling/1', function () {
+        return redirect('/dashboard/user/create');
     });
 
+    Route::resource('/notes', NotesController::class);
+    Route::resource('/appoinment', AppoinmentController::class);
+    Route::resource('/werkbon', WerkbonController::class);
+    Route::resource('/materials', WerkbonMaterialController::class);
+    Route::resource('/hours', WorkhourController::class);
+
+    Route::get('/maintenance/appoinment', function () {
+        return view('dashboards.maintenance.appoinment');
+    });
+
+    Route::get('/afdeling/4', [NotificationsController::class, 'getNotifications']);
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
 
 
@@ -68,19 +83,17 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     // Route::get('/maintenance', function () {
     //     return view('dashboards.maintenance.index');
     // });
-    Route::get('/maintenance', [NotificationsController::class, 'getNotifications']);
+    Route::get('/maintenance/werkbon', [WerkbonController::class, 'getWerkbon']);
+    Route::post('/maintenance/werkbon', [WerkbonController::class, 'store']);
+
+    Route::get('/maintenance/allappointments', [maintenanceappointmentsController::class, 'getAppointments']);
+
+
     Route::get('/sales', function () {
         return view('dashboards.sales.index');
     });
 
-    // Route::get('/sales/notes', function () {
-    //     return view('dashboards.sales.notes');
-    // });
     Route::get('/sales/notes', [NotesController::class, 'getcompanies']);
-
-
-
-
 });
 
 
@@ -97,5 +110,3 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
-
