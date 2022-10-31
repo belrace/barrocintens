@@ -15,6 +15,7 @@
     <script src="/js/app.js" defer></script>
 
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+    <script> document.documentElement.classList.add('dark');</script>
 </head>
 
 <body>

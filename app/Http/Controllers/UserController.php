@@ -27,7 +27,8 @@ class UserController extends Controller
     {
         //
         $teams = Team::all();
-        return view('dashboards.user.show')->with('teams', $teams);
+        $users = User::all();
+        return view('dashboards.user.show')->with(compact('users','teams'));
     }
 
     /**
@@ -40,15 +41,15 @@ class UserController extends Controller
     {
         $naam = $request->get('name');
         $email = $request->get('email');
-        $wachtwoord = $request->get('password');
+        $wachtwoord = bcrypt($request->get('password'));
         $afdelingsid = $request->get('afdelingsid');
 
         $request->validate([
-            $naam => ['required', 'string', 'max:255'],
-            $email => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            $afdelingsid => 'required',
-            'password' => 'required',
-            'password_confirm' => 'required|same:password',
+            'name' => ['required', 'string', 'max:50', 'unique:users,name'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'afdelingsid' => ['required'],
+            'password' => ['required', 'confirmed'],
+            'password_confirmation' => ['required'],
         ]);
 
         $newuser = new User();
@@ -103,6 +104,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect('dashboard.user.create');
     }
 }

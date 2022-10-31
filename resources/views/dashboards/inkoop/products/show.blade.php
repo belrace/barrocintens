@@ -8,11 +8,15 @@
 
 
             <!-- Modal toggle -->
-            <button
-                class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                type="button" data-modal-toggle="authentication-modal">
-                Add product
-            </button>
+            <div class="flex mb-2">
+                <button
+                    style="background-color: #212121; color: #ffd700; "
+                    class="block text-white hover:bg-blue-800   rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 mr-2"
+                    type="button" data-modal-toggle="authentication-modal">
+                    Add product
+                </button>
+                <input type="text" id="searchbrand" onkeyup="searchBrand()" class="rounded" placeholder="Zoeken op merk..">
+            </div>
             <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
             <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
             <!-- Main modal -->
@@ -59,7 +63,13 @@
                                 <input name="productimage"
                                     class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                     id="file_input" type="file">
-
+                                <div>
+                                    <label for="productbrand"
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Naam</label>
+                                    <input type="text" name="productbrand" id="productbrand"
+                                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                           placeholder="DeLonghi" required>
+                                </div>
                                 <div>
                                     <label for="price"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Prijs</label>
@@ -84,8 +94,8 @@
                 </div>
             </div>
             <div class="overflow-x-auto relative">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400" id="product-table">
+                    <thead class="text-xs text-gray-700 uppercase dark:text-gray-400" style="background: #212121; color: #ffd700;">
                     <tr>
                         <th scope="col" class="py-3 px-6">
                             Product naam
@@ -100,20 +110,22 @@
                             Categorie
                         </th>
                         <th scope="col" class="py-3 px-6">
+                            Merk
+                        </th>
+                        <th scope="col" class="py-3 px-6">
                             Price
                         </th>
                         <th colspan="2" scope="col" class="py-3 px-6 text-center ">
                             Options
                         </th>
-
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($products as $product)
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <tr class="border dark:border-gray-700" >
+                            <td class="py-4 px-6">
                                 {{ $product->name }}
-                            </th>
+                            </td>
                             <td class="py-4 px-6">
                                 {{ $product->description }}
                             </td>
@@ -122,6 +134,9 @@
                             </td>
                             <td class="py-4 px-6">
                                 {{ $product->category->name }}
+                            </td>
+                            <td class="py-4 px-6">
+                                {{ $product->brand }}
                             </td>
                             <td class="py-4 px-6">
                                 €{{ $product->price }}
@@ -150,3 +165,26 @@
     </div>
     </div>
 @endsection
+<script>
+    function searchBrand() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchbrand");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("product-table");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[4];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

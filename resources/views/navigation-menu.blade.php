@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 p-2">
+<nav x-data="{ open: false }" class="bg-[#212121] border-b border-gray-100 p-2">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="/">
-                        <img src="/img/barroc1.png" width="80%" alt="">
+                        <img src="/img/barroc1.png" width="80%" alt="" class="border-[#FFD700]">
                     </a>
                 </div>
 
