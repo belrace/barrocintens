@@ -10,6 +10,9 @@ use \App\Http\Controllers\ProductCategoriesController;
 use \App\Models\Team;
 use \App\Http\Controllers\UserController;
 use App\Http\Controllers\WerkbonController;
+use App\Http\Controllers\WerkbonMaterialController;
+use App\Http\Controllers\WorkhourController;
+use App\Models\werkbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +40,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::resource('/user', UserController::class);
     Route::resource('/notes', NotesController::class);
     Route::resource('/appoinment', AppoinmentController::class);
+    Route::resource('/werkbon', WerkbonController::class);
+    Route::resource('/materials', WerkbonMaterialController::class);
+    Route::resource('/hours', WorkhourController::class);
 
     Route::get('/maintenance/appoinment', function () {
         return view('dashboards.maintenance.index');
@@ -66,22 +72,14 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('/inkoop', function () {
         return view('dashboards.inkoop.index');
     });
-    // Route::get('/inkoop', [InkoopController::class, 'getinkoop']);
-    // Route::get('/maintenance', function () {
-    //     return view('dashboards.maintenance.index');
-    // });
+
     Route::get('/maintenance', [NotificationsController::class, 'getNotifications']);
     Route::get('/maintenance/werkbon', [WerkbonController::class, 'getWerkbon']);
-    Route::post('/maintenance/werkbon', [WerkbonController::class, 'store']);
-
 
     Route::get('/sales', function () {
         return view('dashboards.sales.index');
     });
 
-    // Route::get('/sales/notes', function () {
-    //     return view('dashboards.sales.notes');
-    // });
     Route::get('/sales/notes', [NotesController::class, 'getcompanies']);
 });
 
