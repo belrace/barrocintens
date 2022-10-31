@@ -53,7 +53,43 @@
                 padding-left:15%;
                 font-size: 25px;
             }
+            
+            .dropbtn {
+                background-color: #ffd700;
+                color: #000;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                border-radius:10px;
+            }
 
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f1f1f1;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                border-radius:10px;
+            }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content a:hover {background-color: #ddd; border-radius:10px;}
+
+            .dropdown:hover .dropdown-content {display: block; }
+
+            .dropdown:hover .dropbtn {background-color: #af9400;}
 
         </style>
     </head>
@@ -72,12 +108,25 @@
                 <div class="noti-txt">
                     {{$notification->title}}<br/>
                     {{$notification->description}}
+                        <div class="dropdown">
+                        <button class="dropbtn">werknemer</button>
+                        <div class="dropdown-content">
+                        <select name="user">
+                             @foreach($notification as $notification)
+                                <option value="{{ $notification->notification}}">{{ $user->users}}</option>
+                            @endforeach
+    </select>
+
+                        </div>
+    </div>
                 </div>
+
+                
         </div>
-
-
         @endforeach
         </div>
+
+
     </body>
 
     </html> 
