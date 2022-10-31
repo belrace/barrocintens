@@ -2,18 +2,18 @@
 
 @extends('dashboards/base')
 
+@section('sidebar')
+    @include('dashboards.maintenance.sidebar')
+@endsection
+
+
 @section('app')
 
 <html lang="en">
 
     <head>
         
-        <style>
-           .p {
-            margin-top:100px;
-            color: white;
-           }
-        </style>
+        
     </head>
 
     <body>
@@ -31,6 +31,8 @@
 		[x-cloak] {
 			display: none;
 		}
+
+		 
 	</style>
 
 <div class="antialiased sans-serif bg-gray-100 h-screen">
@@ -41,7 +43,7 @@
 				Schedule Tasks
 			</div> -->
 
-			<div class="bg-white rounded-lg shadow overflow-hidden">
+			<div class="bg-black rounded-lg shadow overflow-hidden">
 
 				<div class="flex items-center justify-between py-2 px-6">
 					<div>
@@ -128,7 +130,7 @@
 		</div>
 
 		<!-- Modal -->
-		<div style=" background-color: rgba(0, 0, 0, 0.8)" class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full" x-show.transition.opacity="openEventModal">
+		<div style=" background-color: rgba(0, 0, 0, 0.0)" class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full" x-show.transition.opacity="openEventModal">
 			<div class="p-4 max-w-xl mx-auto relative absolute left-0 right-0 overflow-hidden mt-24">
 				<div class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
 					x-on:click="openEventModal = !openEventModal">
