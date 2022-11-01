@@ -46,9 +46,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
 
     Route::resource('/notes', NotesController::class);
     Route::resource('/appoinment', AppoinmentController::class);
+
     Route::resource('/werkbon', WerkbonController::class);
-    Route::resource('/materials', WerkbonMaterialController::class);
-    Route::resource('/hours', WorkhourController::class);
+    Route::resource('/werkuren', WorkhourController::class);
+    Route::resource('/materialen', WerkbonMaterialController::class);
 
     Route::get('/maintenance/appoinment', function () {
         return view('dashboards.maintenance.appoinment');
