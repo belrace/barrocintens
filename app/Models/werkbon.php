@@ -9,4 +9,24 @@ class werkbon extends Model
 {
     protected $guarded = [];
     use HasFactory;
+
+    public function WorkHours()
+    {
+        return $this->hasMany(workhour::class, 'workhour_id');
+    }
+
+    public function WerkbonMaterials()
+    {
+        return $this->hasMany(werkbon_material::class, 'werkbon_materials_id');
+    }
+
+    public function Companies()
+    {
+        return $this->belongsTo(companies::class, 'companies_id');
+    }
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

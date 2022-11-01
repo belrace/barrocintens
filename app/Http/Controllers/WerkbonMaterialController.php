@@ -9,13 +9,14 @@ class WerkbonMaterialController extends Controller
 {
     public function store()
     {
-        // $data = request()->validate([
-        //     'artikel' => 'required',
-        //     'aantal' => 'required | min: 1',
-        // ]);
+        $data = request()->validate([
+            'material_id' => 'required',
+            'amount' => 'required',
+            'werkbon_id' => 'required',
+        ]);
 
-        // werkbon_material::create($data);
+        werkbon_material::create($data);
 
-        // return redirect('/dashboard/maintenance');
+        return redirect()->back();
     }
 }
