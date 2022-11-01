@@ -44,6 +44,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
         return redirect('/dashboard/user/create');
     });
 
+    
     Route::resource('/notes', NotesController::class);
     Route::resource('/appoinment', AppoinmentController::class);
     Route::resource('/werkbon', WerkbonController::class);
