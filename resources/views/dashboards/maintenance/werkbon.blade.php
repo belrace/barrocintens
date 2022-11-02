@@ -384,7 +384,7 @@
                                     </button>
                                     <div class="py-6 px-6 lg:px-8">
                                         <h3 class="text-xl font-medium text-gray-900 dark:text-white">Materialen</h3>
-                                        <form class="space-y-6" action="" method="post">
+                                        <form class="space-y-6" action="{{ route('dashboard.materialen.store') }}" method="post">
                                             @csrf
                                             <div>
                                                 <label for="ArtikelL" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
@@ -424,11 +424,11 @@
             </div>
             <div class="Materials-bottom">
                 <div class="Materials-grid-2">
-                    <div>Moer</div>
-                    <div>stuks</div>
-                    <div>€2.99</div>
-                    <div>5.0</div>
-                    <div>€14.95</div>
+                    @foreach ($werkbon_materials as $werkbon_material)
+                    <div>{{ $werkbon_material->werkbon_id }}</div>
+                    <div>{{ $werkbon_material->werkbon_id }}</div>
+                    <div>€692.50</div>
+                    @endforeach
                 </div>
                 <!-- <div class="divider-2"></div> -->
             </div>

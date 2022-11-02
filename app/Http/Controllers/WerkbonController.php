@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\companies;
 use App\Models\material;
 use App\Models\werkbon;
+use App\Models\werkbon_material;
 use App\Models\workhour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,6 +16,7 @@ class WerkbonController extends Controller
     {
         $companies = companies::all();
         $materials = material::all();
+        $werkbon_materials = werkbon_material::all();
         $hours = workhour::all();
 
         //until-from=answer
@@ -22,6 +24,7 @@ class WerkbonController extends Controller
         return view('dashboards.maintenance.werkbon', [
             'companies' => $companies,
             'materials' => $materials,
+            'werkbon_materials' => $werkbon_materials,
             'hours' => $hours,
         ]);
     }
