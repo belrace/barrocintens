@@ -44,7 +44,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
         return redirect('/dashboard/user/create');
     });
 
-    
+
     Route::resource('/notes', NotesController::class);
     Route::resource('/appoinment', AppoinmentController::class);
 
@@ -86,7 +86,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     //     return view('dashboards.maintenance.index');
     // });
     Route::get('/maintenance/werkbon', [WerkbonController::class, 'getWerkbon']);
-    Route::post('/maintenance/werkbon', [WerkbonController::class, 'store']);
+    // Route::post('/maintenance/werkbon', [WerkbonController::class, 'store']);
+    Route::get('maintenance/werkbon/overzicht', [WerkbonController::class, 'getWerkbonnen']);
 
     Route::get('/maintenance/allappointments', [maintenanceappointmentsController::class, 'getAppointments']);
 

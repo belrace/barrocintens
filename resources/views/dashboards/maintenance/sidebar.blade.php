@@ -1,6 +1,6 @@
 <ul class="lists">
     <li class="list">
-        <a href="/dashboard" class="nav-link">
+        <a href="/dashboard/afdeling/4" class="nav-link">
             <i class="bx bx-home-alt icon"></i>
             <span class="link">Dashboard</span>
         </a>

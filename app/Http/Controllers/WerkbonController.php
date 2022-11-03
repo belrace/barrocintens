@@ -28,6 +28,16 @@ class WerkbonController extends Controller
             'hours' => $hours,
         ]);
     }
+
+    public function getWerkbonnen()
+    {
+        $werkbonnen = werkbon::all();
+        $companies = companies::all();
+        return view('dashboards.maintenance.werkbon_overzicht', [
+            'werkbonnen' => $werkbonnen,
+            'companies' => $companies,
+        ]);
+    }
     public function store()
     {
     }
