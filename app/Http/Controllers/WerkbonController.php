@@ -33,13 +33,24 @@ class WerkbonController extends Controller
     {
         $werkbonnen = werkbon::all();
         $companies = companies::all();
+        $lastWerkbon = werkbon::all()->last();
         return view('dashboards.maintenance.werkbon_overzicht', [
             'werkbonnen' => $werkbonnen,
             'companies' => $companies,
+            'lastWerkbon' => $lastWerkbon,
         ]);
     }
     public function store()
     {
+        $data = request()->validate([
+            'company_id' => 'required | min: 1',
+        ]);
+
+        $data['user_id'] = Auth::id();
+
+        werkbon::create($data);
+
+        return redirect('/dashboard/maintenance/werkbon/overzicht');
     }
 
 

@@ -94,6 +94,16 @@
         .content-top-btn:hover {
             background-color: #FFD700;
         }
+
+        .divider {
+            height: 1px;
+            width: 100%;
+            background-color: #FFD700;
+            opacity: 0.2;
+            border-radius: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
     </style>
 
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
@@ -121,7 +131,7 @@
                         <div class="py-6 px-6 lg:px-8">
                             <h3 class="text-xl font-medium text-gray-900 dark:text-white">Voeg gewerkte uren
                                 toe</h3>
-                            <form class="space-y-6" action="{{ route('dashboard.werkuren.store') }}" method="post">
+                            <form class="space-y-6" action="{{ route('dashboard.werkbon.store') }}" method="post">
                                 @csrf
                                 <div>
                                     <label for="UurtariefL" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
@@ -143,9 +153,11 @@
         </div>
         <div class="itembox">
             <div class="item">
+                @foreach($werkbonnen as $werkbon)
                 <div class="item-grid">
                     <div class="title">
-                        Bedrijf-Datum
+
+                        {{$werkbon->Companies->name}}
                     </div>
                     <div class="button">
                         <a href="#">
@@ -154,6 +166,11 @@
                         </a>
                     </div>
                 </div>
+                @if($werkbon->id == $lastWerkbon->id)
+                @else
+                <div class="divider"></div>
+                @endif
+                @endforeach
             </div>
         </div>
     </div>
