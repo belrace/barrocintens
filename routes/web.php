@@ -86,8 +86,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('/maintenance/werkbon', [WerkbonController::class, 'getWerkbon']);
     Route::post('/maintenance/werkbon', [WerkbonController::class, 'store']);
 
-    Route::get('/maintenance/allappointments', [maintenanceappointmentsController::class, 'getAppointments']);
 
+
+    
 
     Route::get('/sales', function () {
         return view('dashboards.sales.index');
@@ -110,3 +111,4 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
