@@ -13,6 +13,8 @@ use \App\Http\Controllers\UserController;
 use App\Http\Controllers\WerkbonController;
 use App\Http\Controllers\WerkbonMaterialController;
 use App\Http\Controllers\WorkhourController;
+use App\Http\Controllers\leasecontractController;
+use \App\Http\Controllers\CompaniesController;
 use App\Models\werkbon;
 
 /*
@@ -44,11 +46,14 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
         return redirect('/dashboard/user/create');
     });
 
+
     Route::resource('/notes', NotesController::class);
     Route::resource('/appoinment', AppoinmentController::class);
+    Route::resource('/companies', CompaniesController::class);
+
     Route::resource('/werkbon', WerkbonController::class);
-    Route::resource('/materials', WerkbonMaterialController::class);
-    Route::resource('/hours', WorkhourController::class);
+    Route::resource('/werkuren', WorkhourController::class);
+    Route::resource('/materialen', WerkbonMaterialController::class);
 
     Route::get('/maintenance/appoinment', function () {
         return view('dashboards.maintenance.appoinment');
@@ -76,6 +81,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('/finance/betalingsachterstanden', function () {
         return view('dashboards.finance.betalingsachterstanden');
     });
+    Route::get('/finance/leasecontract', [leasecontractController::class, 'getleasecontracts']);
+
     Route::get('/inkoop', function () {
         return view('dashboards.inkoop.index');
     });
@@ -84,8 +91,14 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     //     return view('dashboards.maintenance.index');
     // });
     Route::get('/maintenance/werkbon', [WerkbonController::class, 'getWerkbon']);
-    Route::post('/maintenance/werkbon', [WerkbonController::class, 'store']);
+    // Route::post('/maintenance/werkbon', [WerkbonController::class, 'store']);
+    Route::get('maintenance/werkbon/overzicht', [WerkbonController::class, 'getWerkbonnen']);
 
+ 
+
+
+    Route::get('/maintenance/allappointments', [maintenanceappointmentsController::class, 'getAppointments']);
+    Route::get('/maintenance/allappointments', [leasecontractController::class, 'storeleasecontract']);
 
 
     

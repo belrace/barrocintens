@@ -55,10 +55,10 @@
         }
 
         /* .divider-2 {
-            width: auto;
-            height: 5px;
-            background-color: #ffd700;
-        } */
+                width: auto;
+                height: 5px;
+                background-color: #ffd700;
+            } */
 
         .title {
             font-size: 2.8rem;
@@ -306,25 +306,26 @@
                                         <span class="sr-only">Close modal</span>
                                     </button>
                                     <div class="py-6 px-6 lg:px-8">
-                                        <h3 class="text-xl font-medium text-gray-900 dark:text-white">Voeg gewerkte uren toe</h3>
-                                        <form class="space-y-6" action="" method="post">
+                                        <h3 class="text-xl font-medium text-gray-900 dark:text-white">Voeg gewerkte uren
+                                            toe</h3>
+                                        <form class="space-y-6" action="{{ route('dashboard.werkuren.store') }}" method="post">
                                             @csrf
                                             <div>
                                                 <label for="DatumL" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     Datum:</label>
-                                                <input type="date" name="Date" id="Date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                <input type="date" name="date" id="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
 
                                                 <label for="VanL" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     Van:</label>
-                                                <input type="time" name="Van" id="Van" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                <input type="time" name="from" id="from" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
 
                                                 <label for="TotL" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     Tot:</label>
-                                                <input type="time" name="Tot" id="Tot" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                <input type="time" name="until" id="until" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
 
                                                 <label for="UurtariefL" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     Uurtarief:</label>
-                                                <input type="text" name="Uurtarief" id="Uurtarief" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                <input type="text" name="hourlypay" id="hourlypay" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                             </div>
                                             <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                 Sla gegevens op
@@ -350,12 +351,14 @@
             </div>
             <div class="uren-bottom">
                 <div class="uren-grid-2">
-                    <div>13-10-2020</div>
-                    <div>08:30</div>
-                    <div>17:00</div>
-                    <div>8:30</div>
-                    <div>€105.00</div>
+                    @foreach ($hours as $hour)
+                    <div>{{ $hour->date }}</div>
+                    <div>{{ $hour->from }}</div>
+                    <div>{{ $hour->until }}</div>
+                    <div>1</div>
+                    <div>{{ $hour->hourlypay }}</div>
                     <div>€692.50</div>
+                    @endforeach
                 </div>
                 <!-- <div class="divider-2"></div> -->
             </div>
@@ -381,15 +384,17 @@
                                     </button>
                                     <div class="py-6 px-6 lg:px-8">
                                         <h3 class="text-xl font-medium text-gray-900 dark:text-white">Materialen</h3>
-                                        <form class="space-y-6" action="" method="post">
+                                        <form class="space-y-6" action="{{ route('dashboard.materialen.store') }}" method="post">
                                             @csrf
                                             <div>
                                                 <label for="ArtikelL" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     Artikel:</label>
                                                 <select name="Artikel" id="Artikel" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                                    <option value="1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Artikel 1</option>
-                                                    <option value="2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Artikel 2</option>
-                                                    <option value="3" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Artikel 3</option>
+                                                    @foreach ($materials as $material)
+                                                    <option value="{{ $material->id }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                        {{ $material->item }}
+                                                    </option>
+                                                    @endforeach
                                                 </select>
 
                                                 <label for="StuksL" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
@@ -419,11 +424,11 @@
             </div>
             <div class="Materials-bottom">
                 <div class="Materials-grid-2">
-                    <div>Moer</div>
-                    <div>stuks</div>
-                    <div>€2.99</div>
-                    <div>5.0</div>
-                    <div>€14.95</div>
+                    @foreach ($werkbon_materials as $werkbon_material)
+                    <div>{{ $werkbon_material->werkbon_id }}</div>
+                    <div>{{ $werkbon_material->werkbon_id }}</div>
+                    <div>€692.50</div>
+                    @endforeach
                 </div>
                 <!-- <div class="divider-2"></div> -->
             </div>

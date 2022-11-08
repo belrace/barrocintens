@@ -27,13 +27,28 @@ class DatabaseSeeder extends Seeder
             ['id' => 1, 'name' => 'AdminBarrocIntens', 'email' => 'AdminTeam@BarrocIntens.nl', 'password' => bcrypt('AdminBarroc'), 'current_team_id' => '1'],
         ];
         DB::table('users')->insert($users);
+
         $teams = [
             ['id' => 1, 'user_id' => '1', 'name' => 'admin', 'personal_team' => '1'],
             ['id' => 2, 'user_id' => '1', 'name' => 'finance', 'personal_team' => '0'],
             ['id' => 3, 'user_id' => '1', 'name' => 'inkoop', 'personal_team' => '0'],
-            ['id' => 4, 'user_id' => '1', 'name' => 'maintenance', 'personal_team' => '0'] ,
+            ['id' => 4, 'user_id' => '1', 'name' => 'maintenance', 'personal_team' => '0'],
             ['id' => 5, 'user_id' => '1', 'name' => 'sales', 'personal_team' => '0'],
         ];
         DB::table('teams')->insert($teams);
+
+        $companies = [
+            ['id' => 1, 'name' => 'Curio RSD', 'phone' => 123456789, 'street' => 'Knipplein', 'house_number' => 11, 'city' => 'Roosendaal', 'country_code' => '+31', 'contact_id' => 1],
+            ['id' => 2, 'name' => 'Dream works', 'phone' => 123456789, 'street' => 'Ergens', 'house_number' => 44, 'city' => 'Roosendaal', 'country_code' => '+31', 'contact_id' => 1],
+        ];
+        DB::table('companies')->insert($companies);
+
+        $werkbon = [
+            ['id' => 1, 'company_id' => 1, 'user_id' => 1],
+            ['id' => 2, 'company_id' => 2, 'user_id' => 1],
+            ['id' => 3, 'company_id' => 2, 'user_id' => 1],
+            ['id' => 4, 'company_id' => 1, 'user_id' => 1],
+        ];
+        DB::table('werkbons')->insert($werkbon);
     }
 }

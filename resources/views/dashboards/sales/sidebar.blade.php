@@ -11,4 +11,10 @@
             <span class="link">Notes</span>
         </a>
     </li>
+    <li class="list">
+        <a href="{{ route('dashboard.companies.index') }}" class="nav-link">
+            <i class='bx bx-building-house icon'></i>
+            <span class="link">Companies</span>
+        </a>
+    </li>
 </ul>
