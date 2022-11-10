@@ -35,10 +35,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
+            position: relative;
             z-index: 99;
             background: rgba(0, 0, 0, 0.16);
-            margin-top: -993px;
+            margin-bottom: 615px;
+           
 
 
         }
@@ -155,30 +156,7 @@
                     
             }
 
-        .grid-item-image-left{
-                display:grid;
-                padding:10px;
-                height:160px;
-                width:35%;
-                background-color:#fff;
-                margin-left: 100px;
-                margin-top: 60px;
-                border-radius: 10px;
-                background-image: url("/img/catprodfin.png");
-                    
-            }
 
-            .grid-item-image-right{
-                display:grid;
-                padding:10px;
-                height:160px;
-                width:35%;
-                background-color:#fff;
-                margin-left: 900px;
-                margin-top: -160px;
-                border-radius: 10px;
-                    
-            }
 
 
         </style>
@@ -205,7 +183,7 @@
                 </form>-->
             </div>
             <ul>
-                <li><a href="http://barrocintens.test/webshop/product">apparaten</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="http://barrocintens.test/webshop/koffiebonen">koffiebonen</a></li>
                 <li><a href="#">Contact</a></li>
 
@@ -224,9 +202,9 @@
     </header>
 
         <main><div class="grid-container">
-            <div class="grid-item-imagebanner"><img src="/img/barrocbanner2.png" alt="5 Terre" width="1550" height="auto"></div>
-            <div class="grid-item-image-left"><a href="">Home</a></div>
-            <div class="grid-item-image-right">categorie 2</div>  
+            <div class="grid-item-imagebanner"></div>
+            <div class="grid-item-image-left"></div>
+            <div class="grid-item-image-right"></div>  
         </div></main>
         
 
