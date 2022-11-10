@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('werkbon_materials', function (Blueprint $table) {
             $table->id();
             $table->string('amount');
-            $table->longtext('werkbon_id');
-            $table->longtext('material_id');
+            $table->integer('werkbon_id');
+            $table->integer('material_id');
             $table->timestamps();
         });
     }

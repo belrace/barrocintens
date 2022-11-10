@@ -111,7 +111,7 @@ nav.open ~ .overlay {
 .white {
     margin-top: 100px;
 }
-.appointment-items{
+.appointment-items {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -121,17 +121,16 @@ nav.open ~ .overlay {
     margin-inline: 300px;
     padding: 25px;
     border-radius: 10px;
-
 }
-.appointment-item{
+.appointment-item {
     margin-block: 20px;
     border-bottom: 2px solid #e6c200;
 }
-.appointment-item h2{
+.appointment-item h2 {
     font-weight: bold;
-    color:  #e6c200;
+    color: #e6c200;
 }
-.appointment-item .details{
+.appointment-item .details {
     margin-left: 25px;
     color: whitesmoke;
 }

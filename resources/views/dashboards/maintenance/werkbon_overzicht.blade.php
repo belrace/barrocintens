@@ -44,27 +44,11 @@
             padding-top: 10px;
             padding-bottom: 10px;
             padding-right: 10px;
-            grid-template-columns: 5fr 1fr;
+            grid-template-columns: 1fr 1fr;
         }
 
         .title {
             font-size: 2em;
-        }
-
-        .button {
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            font-size: 1.75em;
-            background-color: #B39D24;
-            color: white;
-            border-radius: 5px;
-            padding-top: 2px;
-            padding-bottom: 2px;
-        }
-
-        .button:hover {
-            background-color: #FFD700;
         }
 
         .icon-arrow {
@@ -82,7 +66,7 @@
 
         .content-top-btn {
             padding: 2.5px;
-            background-color: #B39D24;
+            background-color: #FFD700;
             border-radius: 5px;
             display: flex;
             justify-content: center;
@@ -92,7 +76,8 @@
         }
 
         .content-top-btn:hover {
-            background-color: #FFD700;
+            scale: 1.02;
+            background-color: #FFEC80;
         }
 
         .divider {
@@ -103,6 +88,27 @@
             border-radius: 10px;
             margin-top: 5px;
             margin-bottom: 5px;
+        }
+
+        .button {
+            background-color: #FFD700;
+            width: 50px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            border-radius: 100px;
+            font-size: 2.2em;
+        }
+
+        .button:hover {
+            background-color: #FFEC80;
+            scale: 1.1;
+        }
+
+        .btn-right {
+            display: flex;
+            justify-content: right;
         }
     </style>
 
@@ -129,13 +135,18 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                         <div class="py-6 px-6 lg:px-8">
-                            <h3 class="text-xl font-medium text-gray-900 dark:text-white">Voeg gewerkte uren
-                                toe</h3>
+                            <h3 class="text-xl font-medium text-gray-900 dark:text-white">Maak een werkbon aan</h3>
                             <form class="space-y-6" action="{{ route('dashboard.werkbon.store') }}" method="post">
                                 @csrf
                                 <div>
                                     <label for="UurtariefL" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                        Bedrijven:</label>
+                                        title:
+                                    </label>
+                                    <input type="text" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="title" required>
+                                    <br>
+                                    <label for="UurtariefL" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                        Bedrijven:
+                                    </label>
                                     <select id="company" name='company_id'>
                                         @foreach ($companies as $company)
                                         <option value="{{ $company->id }}">{{ $company->name }}</option>
@@ -156,13 +167,15 @@
                 @foreach($werkbonnen as $werkbon)
                 <div class="item-grid">
                     <div class="title">
-
                         {{$werkbon->Companies->name}}
+                        -
+                        {{$werkbon->title}}
                     </div>
-                    <div class="button">
-                        <a href="#">
-                            werkbon
-                            <i class='bx bx-arrow-back icon-arrow'></i>
+                    <div class="btn-right">
+                        <a href="/dashboard/maintenance/werkbon/{{$werkbon->id}}">
+                            <div class="button">
+                                <i class='bx bx-chevron-right'></i>
+                            </div>
                         </a>
                     </div>
                 </div>

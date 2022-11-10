@@ -9,4 +9,9 @@ class workhour extends Model
 {
     protected $guarded = [];
     use HasFactory;
+
+    public function Werkbon()
+    {
+        return $this->belongsTo(werkbon::class, 'werkbon_id');
+    }
 }

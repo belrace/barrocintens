@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('street');
             $table->integer('house_number');
+            $table->string('zipcode');
             $table->string('city');
             $table->string('country_code');
             $table->dateTime('bkr_checked_at')->nullable();

@@ -18,6 +18,11 @@
     <script>
         document.documentElement.classList.add('dark');
     </script>
+    <style>
+        nav {
+            z-index: 999;
+        }
+    </style>
 </head>
 
 <body>

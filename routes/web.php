@@ -90,9 +90,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     // Route::get('/maintenance', function () {
     //     return view('dashboards.maintenance.index');
     // });
-    Route::get('/maintenance/werkbon', [WerkbonController::class, 'getWerkbon']);
-    // Route::post('/maintenance/werkbon', [WerkbonController::class, 'store']);
-    Route::get('maintenance/werkbon/overzicht', [WerkbonController::class, 'getWerkbonnen']);
+    Route::get('/maintenance/werkbon/overzicht', [WerkbonController::class, 'getWerkbonnen']);
+
+    Route::get('/maintenance/werkbon/{id}', [WerkbonController::class, 'getWerkbon']);
 
     Route::get('/maintenance/allappointments', [maintenanceappointmentsController::class, 'getAppointments']);
     Route::get('/maintenance/allappointments', [leasecontractController::class, 'storeleasecontract']);
