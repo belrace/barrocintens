@@ -23,10 +23,6 @@
             <span class="link">betalingsachterstanden</span>
         </a>
     </li>
-    <li class="list">
-        <a href="/dashboard/finance/leasecontract" class="nav-link">
-            <i class='bx bx-notepad icon'></i>
-            <span class="link">Leasecontract aanvragen</span>
-        </a>
-    </li>
+
+   
 </ul>
