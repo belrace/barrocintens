@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MaintenanceAppointmentsController;
 use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\afdelingsController;
@@ -54,6 +55,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::resource('/werkbon', WerkbonController::class);
     Route::resource('/werkuren', WorkhourController::class);
     Route::resource('/materialen', WerkbonMaterialController::class);
+
+    Route::get('/admin', [AdminController::class, 'get']);
 
     Route::get('/maintenance/appoinment', function () {
         return view('dashboards.maintenance.appoinment');
