@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('street');
-            $table->string('house_number');
+            $table->integer('house_number');
+            $table->string('zipcode');
             $table->string('city');
             $table->string('country_code');
-            $table->dateTime('bkr_checked_at');
+            $table->dateTime('bkr_checked_at')->nullable();
             $table->integer('contact_id');
             $table->timestamps();
         });

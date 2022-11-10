@@ -58,4 +58,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function Werkbon()
+    {
+        return $this->hasMany(werkbon::class, 'user_id');
+    }
 }

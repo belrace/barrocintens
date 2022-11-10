@@ -22,11 +22,11 @@ class werkbon extends Model
 
     public function Companies()
     {
-        return $this->belongsTo(companies::class, 'companies_id');
+        return $this->belongsTo(companies::class, 'company_id');
     }
 
     public function User()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

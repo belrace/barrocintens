@@ -12,47 +12,42 @@ use Illuminate\Support\Facades\Auth;
 
 class WerkbonController extends Controller
 {
-    public function getWerkbon()
+    public function getWerkbon($id)
     {
-        $companies = companies::all();
+        $werkbon = werkbon::find($id);
         $materials = material::all();
-        $werkbon_materials = werkbon_material::all();
-        $hours = workhour::all();
-
-        //until-from=answer
-
+        $hours = workhour::where('werkbon_id', $id)->get();
+        $items = werkbon_material::where('werkbon_id', $id)->get();
         return view('dashboards.maintenance.werkbon', [
-            'companies' => $companies,
+            'werkbon' => $werkbon,
             'materials' => $materials,
-            'werkbon_materials' => $werkbon_materials,
+            'items' => $items,
             'hours' => $hours,
+        ]);
+    }
+
+    public function getWerkbonnen()
+    {
+        $werkbonnen = werkbon::all();
+        $companies = companies::all();
+        $lastWerkbon = werkbon::all()->last();
+        return view('dashboards.maintenance.werkbon_overzicht', [
+            'werkbonnen' => $werkbonnen,
+            'companies' => $companies,
+            'lastWerkbon' => $lastWerkbon,
         ]);
     }
     public function store()
     {
+        $data = request()->validate([
+            'company_id' => 'required | min: 1',
+            'title' => 'required | min: 1',
+        ]);
+
+        $data['user_id'] = Auth::id();
+
+        werkbon::create($data);
+
+        return redirect('/dashboard/maintenance/werkbon/overzicht');
     }
-
-
-    // public function getcompanies()
-    // {
-    //     $companies = companies::all();
-
-    //     return view('dashboards.sales.notes', [
-    //         'companies' => $companies,
-    //     ]);
-    // }
-    // public function store()
-    // {
-    //     $data = request()->validate([
-    //         'note' => 'required | max:255 | min: 3',
-    //         'company_id' => 'required | min: 1',
-    //     ]);
-
-    //     $data['date'] = date('Y-m-d');
-    //     $data['author_id'] = Auth::id();
-
-    //     notes::create($data);
-
-    //     return redirect('/dashboard/sales');
-    // }
 }

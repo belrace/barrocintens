@@ -9,4 +9,9 @@ class material extends Model
 {
     protected $guarded = [];
     use HasFactory;
+
+    public function Werkbon_Materials()
+    {
+        return $this->hasMany(werkbon_material::class, 'material_id');
+    }
 }
