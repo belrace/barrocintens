@@ -138,7 +138,143 @@
                 text-align: center;
         }
 
+        .active {
+                border-bottom: 2px solid #ffd700;
+                border-top: 2px solid #ffd700;
+                border-right: 2px solid #ffd700;
+                border-left: 2px solid #ffd700;
+                border-radius: 7px;
+            } 
+
             /*------------------------------------------------einde nav -------------------------------------*/
+
+             /*------------------------------------------------begin cards-------------------------------------*/
+
+            :root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #fef8f8;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+  margin: 1rem 10vw;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  grid-template-columns: 1fr auto;
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 350px;
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card__image {      
+    width: 100%;
+    height: 310px;
+    background-color: #cbcbcb;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  
+  right: 0;      
+  z-index: 1;
+}
+
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}       
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;      
+  border-radius: 50%;      
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: #252525;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: #252525;  
+}
+
+.card__status {
+  font-size: .8em;
+  color: #252525;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #515151;
+  font-family: "MockFlowFont";   
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/*---------------------------------einde cards---------------------------*/
 
         .grid-container {
                 display: grid;
@@ -179,6 +315,7 @@
                 border-radius: 10px;
                     
             }
+ 
 
 
         </style>
@@ -205,6 +342,7 @@
                 </form>-->
             </div>
             <ul>
+                <li><a class="active" href="http://barrocintens.test/webshop/product">home</a></li>
                 <li><a href="http://barrocintens.test/webshop/product">apparaten</a></li>
                 <li><a href="http://barrocintens.test/webshop/koffiebonen">koffiebonen</a></li>
                 <li><a href="#">Contact</a></li>
@@ -223,12 +361,44 @@
 
     </header>
 
-        <main><div class="grid-container">
-            <div class="grid-item-imagebanner"><img src="/img/barrocbanner2.png" alt="5 Terre" width="1550" height="auto"></div>
-            <div class="grid-item-image-left"><a href="">Home</a></div>
-            <div class="grid-item-image-right">categorie 2</div>  
-        </div></main>
-        
+<main><div class="grid-container">
+        <div class="grid-item-imagebanner"><img src="/img/barrocbanner2.png" alt="5 Terre" width="1550" height="auto"></div> 
+
+
+    <ul class="cards">
+    <li>
+        <a href="" class="card">
+        <img src="/img/bannercoffee1.png" class="card__image" alt="" />
+        <div class="card__overlay">
+            <div class="card__header">
+            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+            <div class="card__header-text">
+                <h3 class="card__title">Barroc Intens Italian Light</h3>            
+                <span class="card__status"></span>
+            </div>
+            </div>
+            <p class="card__description">Deze barroc intens italian Light is zeer praktisch. Dit apparaat kan binnen no time een heerlijk bakje koffie voor u maken.</p>
+        </div>
+        </a>      
+    </li>  
+    
+    <li>
+        <a href="" class="card">
+        <img src="/img/machinebitlight1.png" class="card__image" alt="" />
+        <div class="card__overlay">
+            <div class="card__header">
+            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+            <div class="card__header-text">
+                <h3 class="card__title">Barroc Intens Italian Light</h3>            
+                <span class="card__status"></span>
+            </div>
+            </div>
+            <p class="card__description">Deze barroc intens italian Light is zeer praktisch. Dit apparaat kan binnen no time een heerlijk bakje koffie voor u maken.</p>
+        </div>
+        </a>      
+    </li> 
+    </ul>
+    </div></main>
 
 
             

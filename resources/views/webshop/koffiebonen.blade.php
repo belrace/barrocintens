@@ -37,8 +37,8 @@
             align-items: center;
             position: relative;
             z-index: 99;
-            background: rgba(0, 0, 0, 0.16);
-            margin-bottom: 615px;
+            background:#252525;
+            
            
 
 
@@ -55,7 +55,6 @@
             header .logo{
             flex: 1;
             color:#fff;
-            
             margin-left: 50px;
             text-transform: uppercase;
             font-size: 15px;
@@ -139,36 +138,152 @@
                 text-align: center;
         }
 
+        .active {
+                border-bottom: 2px solid #ffd700;
+                border-top: 2px solid #ffd700;
+                border-right: 2px solid #ffd700;
+                border-left: 2px solid #ffd700;
+                border-radius: 7px;
+            } 
+
             /*------------------------------------------------einde nav -------------------------------------*/
 
-        .grid-container {
-                display: grid;
-               
-        }
 
-        .grid-item {
-               
-                font-size: 30px;
-             }
+            /*----------------------------------begin cards--------------------------*/
+            :root {
+  --surface-color: #fff;
+  --curve: 40;
+}
 
-        .grid-item-imagebanner{
-                    display: grid;
-                    
-            }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #fef8f8;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+  margin: 1rem 10vw;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  grid-template-columns: 1fr auto;
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 350px;
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card__image {      
+    width: 100%;
+    height: 310px;
+    background-color: #cbcbcb;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  
+  right: 0;      
+  z-index: 1;
+}
+
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}       
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;      
+  border-radius: 50%;      
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: #252525;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: #252525;  
+}
+
+.card__status {
+  font-size: .8em;
+  color: #252525;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #515151;
+  font-family: "MockFlowFont";   
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 
 
+    
+            /*----------------------------------eind cards--------------------------*/
 
         </style>
 
-
-
-
-
-
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+        
 
 
 <!--product pagina code-->
@@ -185,6 +300,7 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="http://barrocintens.test/webshop/product">apparaten</a></li>
+                <li><a class="active" href="http://barrocintens.test/webshop/koffiebonen">koffiebonen</a></li>
                 <li><a href="#">Contact</a></li>
 
                 @if (Route::has('login'))
@@ -200,20 +316,85 @@
             </ul>
 
     </header>
+    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
-        <main><div class="grid-container">
-            <div class="grid-item-imagebanner"></div>
-            <div class="grid-item-image-left"></div>
-            <div class="grid-item-image-right"></div>  
-        </div></main>
+
+    
+
+<!----begin cards--------------------------------------------------------------------------->
+        <ul class="cards">
+  <li>
+    <a href="" class="card">
+      <img src="/img/bonenzak1.png" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <div class="card__header-text">
+            <h3 class="card__title">Barroc Intens chamberlain red</h3>            
+            <span class="card__status"></span>
+          </div>
+        </div>
+        <p class="card__description">Barroc Intens chamberlain red is onze koffie rijk van smaak en eerlijk verbouwd</p>
+      </div>
+    </a>      
+  </li>  
+  
+  <li>
+    <a href="" class="card">
+      <img src="/img/bonenzak2.png" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <div class="card__header-text">
+            <h3 class="card__title">Barroc Intens chamberlain light blue</h3>            
+            <span class="card__status"></span>
+          </div>
+        </div>
+        <p class="card__description"> Barroc Intens chamberlain light blue is een koffie met minder caffaine</p>
+      </div>
+    </a>      
+  </li> 
+
+  <li>
+    <a href="" class="card">
+      <img src="/img/bonenzak3.png" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <div class="card__header-text">
+            <h3 class="card__title">Barroc Intens chamberlain green</h3>            
+            <span class="card__status"></span>
+          </div>
+        </div>
+        <p class="card__description">Barroc Intens chamberlain green is een biologische koffie die zo duurzaam mogelijk word gemaakt</p>
+      </div>
+    </a>      
+  </li> 
+
+  <li>
+    <a href="" class="card">
+      <img src="/img/bonenzak4.png" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <div class="card__header-text">
+            <h3 class="card__title">Barroc Intens chamberlain white</h3>            
+            <span class="card__status"></span>
+          </div>
+        </div>
+        <p class="card__description">Barroc Intens chamberlain white is zeer neutrale koffie voor op het werk</p>
+      </div>
+    </a>      
+  </li> 
+  
+</ul>
+
+<!----eind cards--------------------------------------------------------------------------->
         
 
 
             
-<!--onder deafbeelding-->
 
-    <div class="">
-    </div>
 
     </body>
 </html>
