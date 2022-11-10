@@ -38,7 +38,7 @@
             position: fixed;
             z-index: 99;
             background: rgba(0, 0, 0, 0.16);
-            margin-top: -993px;
+            margin-top: -1155px;
 
 
         }
@@ -367,33 +367,33 @@ body {
 
     <ul class="cards">
     <li>
-        <a href="" class="card">
+        <a href="http://barrocintens.test/webshop/product" class="card">
         <img src="/img/bannercoffee1.png" class="card__image" alt="" />
         <div class="card__overlay">
             <div class="card__header">
             <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
             <div class="card__header-text">
-                <h3 class="card__title">Barroc Intens Italian Light</h3>            
+                <h3 class="card__title">Onze apparaten.</h3>            
                 <span class="card__status"></span>
             </div>
             </div>
-            <p class="card__description">Deze barroc intens italian Light is zeer praktisch. Dit apparaat kan binnen no time een heerlijk bakje koffie voor u maken.</p>
+            <p class="card__description">Wij van Barroc Intens hebben een ruim assortiment aan top kwaliteit Koffie machines.</p>
         </div>
         </a>      
     </li>  
     
     <li>
-        <a href="" class="card">
-        <img src="/img/machinebitlight1.png" class="card__image" alt="" />
+        <a href="http://barrocintens.test/webshop/koffiebonen" class="card">
+        <img src="/img/bannercoffe2.png" class="card__image" alt="" />
         <div class="card__overlay">
             <div class="card__header">
             <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
             <div class="card__header-text">
-                <h3 class="card__title">Barroc Intens Italian Light</h3>            
+                <h3 class="card__title">Onze koffiebonen</h3>            
                 <span class="card__status"></span>
             </div>
             </div>
-            <p class="card__description">Deze barroc intens italian Light is zeer praktisch. Dit apparaat kan binnen no time een heerlijk bakje koffie voor u maken.</p>
+            <p class="card__description">Wij van Barroc Intens hebben een zeer ruim assortiment aan kwaliteit koffiebonen.</p>
         </div>
         </a>      
     </li> 
