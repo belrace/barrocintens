@@ -60,9 +60,22 @@ class DatabaseSeeder extends Seeder
         DB::table('werkbons')->insert($werkbon);
 
         $material = [
-            ['id' => 1, 'item' => 'Moer', 'unit' => 'stuk(s)', 'prijs' => 1.99],
-            ['id' => 2, 'item' => 'Snoer', 'unit' => 'M', 'prijs' => 3.49],
-            ['id' => 3, 'item' => 'Rooster', 'unit' => 'stuk(s)', 'prijs' => 11.99],
+            ['id' => 1, 'item' => 'Rubber(10 mm)', 'unit' => 'stuk(s)', 'prijs' => 0.39],
+            ['id' => 2, 'item' => 'Rubber(14 mm)', 'unit' => 'stuk(s)', 'prijs' => 0.45],
+            ['id' => 3, 'item' => 'Slang', 'unit' => 'stuk(s)', 'prijs' => 4.45],
+            ['id' => 4, 'item' => 'Voeding(elektra)', 'unit' => 'stuk(s)', 'prijs' => 68.69],
+            ['id' => 5, 'item' => 'Ontkalker', 'unit' => 'stuk(s)', 'prijs' => 4.00],
+            ['id' => 6, 'item' => 'Waterfilter', 'unit' => 'stuk(s)', 'prijs' => 299.45],
+            ['id' => 7, 'item' => 'Reservoir sensor', 'unit' => 'stuk(s)', 'prijs' => 89.99],
+            ['id' => 8, 'item' => 'Druppelstop', 'unit' => 'stuk(s)', 'prijs' => 122.43],
+            ['id' => 9, 'item' => 'Electrische pomp', 'unit' => 'stuk(s)', 'prijs' => 478.59],
+            ['id' => 10, 'item' => 'Tandwiel(110 mm)', 'unit' => 'stuk(s)', 'prijs' => 5.45],
+            ['id' => 11, 'item' => 'Tandwiel(70 mm)', 'unit' => 'stuk(s)', 'prijs' => 5.25],
+            ['id' => 12, 'item' => 'Maalmotor', 'unit' => 'stuk(s)', 'prijs' => 119.20],
+            ['id' => 13, 'item' => 'Zeef', 'unit' => 'stuk(s)', 'prijs' => 28.80],
+            ['id' => 14, 'item' => 'Reinigingstabletten', 'unit' => 'stuk(s)', 'prijs' => 3.45],
+            ['id' => 14, 'item' => 'Reiningsborsteltjes', 'unit' => 'stuk(s)', 'prijs' => 8.45],
+            ['id' => 14, 'item' => 'Ontkalkingspijp', 'unit' => 'stuk(s)', 'prijs' => 21.70],
         ];
         DB::table('materials')->insert($material);
     }
