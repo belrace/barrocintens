@@ -177,7 +177,7 @@
             border-color: #ffd700;
             border-style: solid;
             border-radius: 10px;
-            height: max-content;
+            /* height: max-content; */
             color: white;
             margin-left: 50px;
             margin-right: 50px;
