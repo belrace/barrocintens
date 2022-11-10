@@ -74,8 +74,8 @@ class DatabaseSeeder extends Seeder
             ['id' => 12, 'item' => 'Maalmotor', 'unit' => 'stuk(s)', 'prijs' => 119.20],
             ['id' => 13, 'item' => 'Zeef', 'unit' => 'stuk(s)', 'prijs' => 28.80],
             ['id' => 14, 'item' => 'Reinigingstabletten', 'unit' => 'stuk(s)', 'prijs' => 3.45],
-            ['id' => 14, 'item' => 'Reiningsborsteltjes', 'unit' => 'stuk(s)', 'prijs' => 8.45],
-            ['id' => 14, 'item' => 'Ontkalkingspijp', 'unit' => 'stuk(s)', 'prijs' => 21.70],
+            ['id' => 15, 'item' => 'Reiningsborsteltjes', 'unit' => 'stuk(s)', 'prijs' => 8.45],
+            ['id' => 16, 'item' => 'Ontkalkingspijp', 'unit' => 'stuk(s)', 'prijs' => 21.70],
         ];
         DB::table('materials')->insert($material);
     }
