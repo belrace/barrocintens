@@ -48,7 +48,7 @@
             justify-content: right;
         }
 
-        .content-middle {
+        .content-middle-bottom {
             margin-top: 50px;
             height: auto;
         }
@@ -144,6 +144,23 @@
             height: 1px;
             background-color: #ffd700;
         }
+
+        .content-middle-top-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10%;
+        }
+
+        .content-middle-top-grid-card-left {
+            color: #ffffff;
+            padding: 15px;
+        }
+
+        .content-middle-top-grid-card-right {
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -159,9 +176,65 @@
                     </div>
                 </div>
             </div>
+
             <div class="whitespace"></div>
             <div class="divider"></div>
-            <div class="content-middle">
+            <div class="whitespace"></div>
+
+            <div class="content-middle-top">
+                <div class="content-middle-top-grid">
+                    <div class="content-middle-top-grid-card-left">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sunt, molestiae suscipit minus sequi perspiciatis veniam libero iure. Qui minima quisquam provident in iure est aspernatur architecto. Fugiat, possimus ipsa.
+                    </div>
+                    <div class="content-middle-top-grid-card-right">
+                        <div class="overflow-x-auto relative">
+                            <table class="text-sm text-left text-gray-500 dark:text-gray-400">
+                                <thead class="text-xs uppercase dark:text-gray-400" style="background: #212121; color: #ffd700;">
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">
+                                            Grebruikersnaam
+                                        </th>
+                                        <th scope="col" class="py-3 px-6">
+                                            Email
+                                        </th>
+                                        <th scope="col" class="py-3 px-6">
+                                            Team
+                                        </th>
+                                        <th scope="col" colspan="1" class="py-3 px-6 text-center">
+                                            Options
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($users as $user)
+                                    <tr class="border dark:border-[#FFD700] ">
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $user->name }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $user->email }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $user->currentTeam->name }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <form action="{{ route('dashboard.user.destroy', $user->id) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                                                    Verwijder
+                                                </button>
+                                            </form>
+                                        </th>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-middle-bottom">
                 <div class="wrapper">
                     <div class="collapsible">
                         <input type="checkbox" id="collapsible-head">
