@@ -202,18 +202,15 @@
     </header>
 
         <main><div class="grid-container">
-            <div class="grid-item-imagebanner"></div>
-            <div class="grid-item-image-left"></div>
-            <div class="grid-item-image-right"></div>  
+            <div class="">1</div>
+            <div class="">2</div>
+            <div class="">3</div>  
         </div></main>
         
 
 
             
-<!--onder deafbeelding-->
 
-    <div class="">
-    </div>
 
     </body>
 </html>
