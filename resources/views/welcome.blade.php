@@ -315,7 +315,8 @@ body {
                 border-radius: 10px;
                     
             }
- 
+
+           
 
 
         </style>
@@ -373,7 +374,7 @@ body {
             <div class="card__header">
             <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
             <div class="card__header-text">
-                <h3 class="card__title">Onze apparaten.</h3>            
+                <h3 class="card__title">Onze apparaten</h3>            
                 <span class="card__status"></span>
             </div>
             </div>
@@ -397,7 +398,13 @@ body {
         </div>
         </a>      
     </li> 
+
+
     </ul>
+
+    
+
+    
     </div></main>
 
 
@@ -407,6 +414,8 @@ body {
     <div class="">
     </div>
 
-    </body>
+ 
+
+</body>
 </html>
 
