@@ -60,6 +60,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     });
 
     Route::get('/afdeling/4', [NotificationsController::class, 'getNotifications']);
+    Route::post('/afdeling/4', [NotificationsController::class, 'store']);
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
 
 
@@ -86,6 +87,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('/inkoop', function () {
         return view('dashboards.inkoop.index');
     });
+    
     // Route::get('/inkoop', [InkoopController::class, 'getinkoop']);
     // Route::get('/maintenance', function () {
     //     return view('dashboards.maintenance.index');
@@ -108,6 +110,12 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     });
 
     Route::get('/sales/notes', [NotesController::class, 'getcompanies']);
+});
+Route::get('/webshop/product', function () {
+    return view('webshop.product');
+});
+Route::get('/webshop/koffiebonen', function () {
+    return view('webshop.koffiebonen');
 });
 
 

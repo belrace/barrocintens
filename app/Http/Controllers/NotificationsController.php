@@ -16,4 +16,16 @@ class NotificationsController extends Controller
         return view('dashboards.maintenance.index')->with(compact('notifications','users'));
         
     }
+
+    public function store()
+    {
+        $data = request()->validate([
+            'werknemer' => 'required',
+
+        ]);
+
+        notifications::create($data);
+
+        return redirect()->back();
+    }
 }
