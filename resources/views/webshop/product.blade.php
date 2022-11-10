@@ -37,7 +37,7 @@
             align-items: center;
             position: relative;
             z-index: 99;
-            background:#252525;
+            background:#212121;
             
            
 
@@ -184,6 +184,7 @@ body {
   border-radius: calc(var(--curve) * 1px);
   overflow: hidden;
   text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 .card__image {      
@@ -312,9 +313,10 @@ body {
                 @endif
 
             </ul>
+            
 
     </header>
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-800 sm:items-center py-4 sm:pt-0">
 
 
 <!----begin test--------------------------------------------------------------------------->
@@ -385,6 +387,8 @@ body {
   
 </ul>
 
+
+
 <!----eind test--------------------------------------------------------------------------->
         
 
@@ -392,6 +396,6 @@ body {
             
 
 
-    </body>
+    </body></main>
 </html>
 
