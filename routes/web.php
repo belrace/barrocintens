@@ -87,7 +87,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('/inkoop', function () {
         return view('dashboards.inkoop.index');
     });
-    
+
     // Route::get('/inkoop', [InkoopController::class, 'getinkoop']);
     // Route::get('/maintenance', function () {
     //     return view('dashboards.maintenance.index');
@@ -96,17 +96,20 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
 
     Route::get('/maintenance/werkbon/{id}', [WerkbonController::class, 'getWerkbon']);
 
- 
+
 
 
     Route::get('/maintenance/allappointments', [maintenanceappointmentsController::class, 'getAppointments']);
     Route::get('/maintenance/allappointments', [leasecontractController::class, 'storeleasecontract']);
 
 
-    
+
 
     Route::get('/sales', function () {
         return view('dashboards.sales.index');
+    });
+    Route::get('/admin', function () {
+        return view('dashboards.admin.index');
     });
 
     Route::get('/sales/notes', [NotesController::class, 'getcompanies']);
@@ -132,4 +135,3 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-

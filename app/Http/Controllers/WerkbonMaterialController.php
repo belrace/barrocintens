@@ -6,7 +6,7 @@ use App\Models\werkbon;
 use App\Models\werkbon_material;
 use Illuminate\Http\Request;
 
-class WerkbonMaterialController extends Controller
+class  WerkbonMaterialController extends Controller
 {
     public function store()
     {
