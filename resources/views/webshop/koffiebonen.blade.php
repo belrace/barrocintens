@@ -169,7 +169,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 4rem;
   margin: 1rem 10vw;
-  padding: 0;
+  padding: 60px;
   list-style-type: none;
   position: relative;
   top: 0px;
@@ -299,10 +299,12 @@ body {
                 </form>-->
             </div>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="http://barrocintens.test/webshop/product">apparaten</a></li>
-                <li><a class="active" href="http://barrocintens.test/webshop/koffiebonen">koffiebonen</a></li>
-                <li><a href="#">Contact</a></li>
+
+                <li><a href="/">home</a></li>
+                @foreach($categoriese as $categorie)
+                <li><a class="active" href="http://barrocintens.test/webshop/product/{{$categorie->id}}">{{$categorie->name}}</a></li>
+                @endforeach
+                <li><a href="http://barrocintens.test/webshop/contact">Contact</a></li>
 
                 @if (Route::has('login'))
                 
