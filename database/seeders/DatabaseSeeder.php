@@ -78,5 +78,31 @@ class DatabaseSeeder extends Seeder
             ['id' => 16, 'item' => 'Ontkalkingspijp', 'unit' => 'stuk(s)', 'prijs' => 21.70],
         ];
         DB::table('materials')->insert($material);
+
+        $stocks = [
+            ['id' => 1, 'amount' => 100, 'material_id' => 1],
+            ['id' => 2, 'amount' => 100, 'material_id' => 2],
+            ['id' => 3, 'amount' => 100, 'material_id' => 3],
+            ['id' => 4, 'amount' => 100, 'material_id' => 4],
+            ['id' => 5, 'amount' => 100, 'material_id' => 5],
+            ['id' => 6, 'amount' => 100, 'material_id' => 6],
+            ['id' => 7, 'amount' => 100, 'material_id' => 7],
+            ['id' => 8, 'amount' => 100, 'material_id' => 8],
+            ['id' => 9, 'amount' => 100, 'material_id' => 9],
+            ['id' => 10, 'amount' => 100, 'material_id' => 10],
+            ['id' => 11, 'amount' => 100, 'material_id' => 11],
+            ['id' => 12, 'amount' => 100, 'material_id' => 12],
+            ['id' => 13, 'amount' => 100, 'material_id' => 13],
+            ['id' => 14, 'amount' => 100, 'material_id' => 14],
+            ['id' => 15, 'amount' => 100, 'material_id' => 15],
+            ['id' => 16, 'amount' => 100, 'material_id' => 16],
+        ];
+        DB::table('stocks')->insert($stocks);
+
+        $categories = [
+            ['id' => 1, 'name' => 'Machine\'s', 'is_employee_only' => 0],
+            ['id' => 2, 'name' => 'Bonen', 'is_employee_only' => 0],
+        ];
+        DB::table('product_categories')->insert($categories);
     }
 }
