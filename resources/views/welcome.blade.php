@@ -481,7 +481,7 @@ body{
 
     <ul class="cards">
     <li>
-        <a href="http://barrocintens.test/webshop/product" class="card">
+        <a href="http://barrocintens.test/webshop/product/1" class="card">
         <img src="/img/bannercoffee1.png" class="card__image" alt="" />
         <div class="card__overlay">
             <div class="card__header">
@@ -497,7 +497,7 @@ body{
     </li>  
     
     <li>
-        <a href="http://barrocintens.test/webshop/koffiebonen" class="card">
+        <a href="http://barrocintens.test/webshop/product/2" class="card">
         <img src="/img/bannercoffe2.png" class="card__image" alt="" />
         <div class="card__overlay">
             <div class="card__header">
