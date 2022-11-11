@@ -36,6 +36,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboard.'], function () {
 
     // rousource routes
+    Route::resource('/admin', AdminController::class);
     Route::resource('/products', ProductsController::class);
     Route::get('/inkoop/product/add', [ProductsController::class, 'index']);
 
@@ -55,8 +56,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::resource('/werkbon', WerkbonController::class);
     Route::resource('/werkuren', WorkhourController::class);
     Route::resource('/materialen', WerkbonMaterialController::class);
-
-    Route::get('/admin', [AdminController::class, 'get']);
 
     Route::get('/maintenance/appoinment', function () {
         return view('dashboards.maintenance.appoinment');
@@ -111,9 +110,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('/sales', function () {
         return view('dashboards.sales.index');
     });
-    Route::get('/admin', function () {
-        return view('dashboards.admin.index');
-    });
+
 
     Route::get('/sales/notes', [NotesController::class, 'getcompanies']);
 });

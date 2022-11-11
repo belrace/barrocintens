@@ -57,6 +57,8 @@
             height: 50px;
         }
 
+        /* Start collapsible */
+
         .wrapper {
             width: 100%;
             justify-content: center;
@@ -123,24 +125,44 @@
             max-height: 300px;
             padding-bottom: 25px;
             background-color: #4D4D4D;
-
             box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .1), 0 4px 11px 0 rgba(0, 0, 0, .08);
             opacity: 1;
             top: 0;
         }
 
-        .collapsible-text h2 {
-            margin-bottom: 10px;
-            padding: 15px 15px 0;
-            color: #ffffff;
-        }
-
-        .collapsible-text p {
+        .collapsible-text .collapsible-grid {
             padding-left: 15px;
             padding-right: 15px;
+            padding-top: 15px;
             color: #ffffff;
-
         }
+
+        .collapsible-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 200px);
+            grid-gap: 20px;
+        }
+
+        .collapsible-grid-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #666666;
+            border-radius: 3px;
+            padding: 5px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .collapsible-grid-item:hover {
+            background-color: #ffd700;
+        }
+
+        /* End collapsible */
 
         .divider {
             border-radius: 10px;
@@ -200,6 +222,11 @@
             align-items: center;
             color: #ffffff;
         }
+
+        .button-submit-form :hover {
+            background-color: #FFEC80;
+            scale: 1.01;
+        }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
@@ -247,11 +274,12 @@
 
                             <label for="" class="form-label">department:</label><br>
                             <select name="isEmployee" id="isEmployee" class="card-input">
-                                <option value="0">None</option>
+                                <option value="0">Klant</option>
                                 <option value="1">Maintenance</option>
                                 <option value="2">Sales</option>
                                 <option value="3">Inkoop</option>
                                 <option value="4">Finance</option>
+                                <option value="5">Admin</option>
                             </select>
                             <div class="whitespace-form"></div>
                             <div class="whitespace-form"></div>
@@ -273,9 +301,15 @@
                     <div class="collapsible">
                         <input type="checkbox" id="collapsible-head">
                         <label for="collapsible-head">Onderdelen</label>
-                        <div class="collapsible-text">
-                            <h2>Lijst met onderdelen</h2>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus nobis cum assumenda? Corrupti aliquam dolores ex doloremque quia voluptatem vitae earum quibusdam quas delectus quo et error laboriosam sequi consequuntur illum, molestias reprehenderit! Pariatur veritatis inventore aperiam eos repudiandae numquam natus reiciendis laborum officia explicabo, harum ipsam quia a tempora dignissimos sint cum aspernatur odio ipsa perferendis. Quas soluta tenetur id, doloremque ducimus sit. Porro in nesciunt facere pariatur. Illum eaque, nobis adipisci aspernatur magnam assumenda neque. Eos earum aspernatur dolorum nostrum odio quibusdam, assumenda quam obcaecati dolores optio tenetur in, quis recusandae veritatis quod nobis enim beatae aliquam ad.</p>
+                        <div class="collapsible-text" id="collapsible-text">
+                            <div class="collapsible-grid">
+                                @foreach($items as $item)
+                                <div class="collapsible-grid-item">
+                                    {{$item->item}}
+
+                                </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
