@@ -150,7 +150,7 @@
 
 
             /*----------------------------------begin cards--------------------------*/
-            :root {
+:root {
   --surface-color: #fff;
   --curve: 40;
 }
@@ -161,7 +161,7 @@
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  background-color: #fef8f8;
+  background-color: #2c2c2c;
 }
 
 .cards {
@@ -317,7 +317,7 @@ body {
             
 
     </header>
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-800 sm:items-center py-4 sm:pt-0">
+    <div class="relative flex items-top justify-center min-h-screen  sm:items-center py-4 sm:pt-0">
 
 
 <!----begin card--------------------------------------------------------------------------->
@@ -331,7 +331,7 @@ body {
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
           <div class="card__header-text">
             <h3 class="card__title">{{$product->name}}</h3>            
-            <span class="card__status"></span>
+            <span class="card__status">{{$product->price}}</span>
           </div>
         </div>
         <p class="card__description">{{$product->description}}</p>

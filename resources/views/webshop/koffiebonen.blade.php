@@ -161,7 +161,7 @@
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  background-color: #fef8f8;
+  background-color: #2c2c2c;
 }
 
 .cards {
@@ -283,7 +283,7 @@ body {
         </style>
 
     </head>
-    <body class="antialiased">
+    <body>
         
 
 
@@ -319,79 +319,13 @@ body {
             </ul>
 
     </header>
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-800 sm:items-center py-4 sm:pt-0">
+    <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
 
 
     
 
 <!----begin cards--------------------------------------------------------------------------->
-        <ul class="cards">
-  <li>
-    <a href="" class="card">
-      <img src="/img/bonenzak1.png" class="card__image" alt="" />
-      <div class="card__overlay">
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-          <div class="card__header-text">
-            <h3 class="card__title">Barroc Intens chamberlain red</h3>            
-            <span class="card__status"></span>
-          </div>
-        </div>
-        <p class="card__description">Barroc Intens chamberlain red is onze koffie rijk van smaak en eerlijk verbouwd</p>
-      </div>
-    </a>      
-  </li>  
-  
-  <li>
-    <a href="" class="card">
-      <img src="/img/bonenzak2.png" class="card__image" alt="" />
-      <div class="card__overlay">
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-          <div class="card__header-text">
-            <h3 class="card__title">Barroc Intens chamberlain light blue</h3>            
-            <span class="card__status"></span>
-          </div>
-        </div>
-        <p class="card__description"> Barroc Intens chamberlain light blue is een koffie met minder caffaine</p>
-      </div>
-    </a>      
-  </li> 
-
-  <li>
-    <a href="" class="card">
-      <img src="/img/bonenzak3.png" class="card__image" alt="" />
-      <div class="card__overlay">
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-          <div class="card__header-text">
-            <h3 class="card__title">Barroc Intens chamberlain green</h3>            
-            <span class="card__status"></span>
-          </div>
-        </div>
-        <p class="card__description">Barroc Intens chamberlain green is een biologische koffie die zo duurzaam mogelijk word gemaakt</p>
-      </div>
-    </a>      
-  </li> 
-
-  <li>
-    <a href="" class="card">
-      <img src="/img/bonenzak4.png" class="card__image" alt="" />
-      <div class="card__overlay">
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-          <div class="card__header-text">
-            <h3 class="card__title">Barroc Intens chamberlain white</h3>            
-            <span class="card__status"></span>
-          </div>
-        </div>
-        <p class="card__description">Barroc Intens chamberlain white is zeer neutrale koffie voor op het werk</p>
-      </div>
-    </a>      
-  </li> 
-  
-</ul>
-
+        
 
 
 <!----eind cards--------------------------------------------------------------------------->
