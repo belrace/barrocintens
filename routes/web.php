@@ -131,6 +131,7 @@ Route::get('/webshop/contact', function () {
     return view('webshop.contact');
 });
 
+Route::get('/webshop/product/{id}', [ProductsController::class, 'getProduct']);
 
 Route::get('/webshop', function () {
     return view('webshop.index');
