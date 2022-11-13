@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class workhour extends Model
+class stock extends Model
 {
-    protected $guarded = [];
     use HasFactory;
 
-    public function Werkbon()
+    public function Materials()
     {
-        return $this->belongsTo(werkbon::class, 'werkbon_id');
+        return $this->hasMany(material::class, 'material_id');
     }
 }

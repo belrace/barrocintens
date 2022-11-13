@@ -28,7 +28,7 @@ class UserController extends Controller
         //
         $teams = Team::all();
         $users = User::all();
-        return view('dashboards.user.show')->with(compact('users','teams'));
+        return view('dashboards.user.show')->with(compact('users', 'teams'));
     }
 
     /**

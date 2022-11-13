@@ -18,16 +18,9 @@
         </a>
     </li>
     <li class="list">
-        <a href="/dashboard/maintenance/werkbon" class="nav-link">
+        <a href="/dashboard/maintenance/werkbon/overzicht" class="nav-link">
             <i class='bx bx-receipt icon'></i>
             <span class="link">Werkbon</span>
-        </a>
-    </li>
-
-     <li class="list">
-        <a href="/dashboard/maintenance/storingmedling" class="nav-link">
-            <i class='bx bx-receipt icon'></i>
-            <span class="link">storing melden</span>
         </a>
     </li>
 </ul>

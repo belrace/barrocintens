@@ -19,6 +19,7 @@ return new class extends Migration
             $table->time('from');
             $table->time('until');
             $table->decimal('hourlypay');
+            $table->integer('werkbon_id');
             $table->timestamps();
         });
     }
