@@ -65,7 +65,6 @@
         }
 
         .collapsible {
-
             width: 100%;
             overflow: hidden;
             font-weight: 500;
@@ -139,7 +138,7 @@
 
         .collapsible-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, 200px);
+            grid-template-columns: repeat(auto-fill, 250px);
             grid-gap: 20px;
         }
 
@@ -182,14 +181,7 @@
             padding: 15px;
         }
 
-        .content-middle-top-grid-card-right {
-            padding: 15px;
-            background-color: #4D4D4D;
-            border-radius: 10px;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-        }
+
 
         .card-input {
             min-width: 250px;
@@ -227,6 +219,61 @@
             background-color: #FFEC80;
             scale: 1.01;
         }
+
+        .card-right-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            height: 100%;
+        }
+
+        .card-right-grid-left {
+            background-color: #4D4D4D;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-right-grid-middle {
+            background-color: #4D4D4D;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-right-grid-right {
+            background-color: #4D4D4D;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-right-grid-left-text {
+            color: #ffd700;
+            user-select: none;
+            writing-mode: sideways-lr;
+            font-size: 3em;
+            font-family: "Big Shoulders Display", sans-serif;
+            font-weight: bold;
+            opacity: 0.3;
+        }
+
+        .card-right-grid-right-text {
+            color: #ffd700;
+            writing-mode: sideways-rl;
+            user-select: none;
+            font-size: 3em;
+            font-family: "Big Shoulders Display", sans-serif;
+            font-weight: bold;
+            opacity: 0.3;
+        }
+
+        .content-middle-top-grid-card-left {
+            background-color: #4D4D4D;
+            border-radius: 10px;
+        }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
@@ -252,47 +299,53 @@
             <div class="content-middle-top">
                 <div class="content-middle-top-grid">
                     <div class="content-middle-top-grid-card-left">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sunt, molestiae suscipit minus sequi perspiciatis veniam libero iure. Qui minima quisquam provident in iure est aspernatur architecto. Fugiat, possimus ipsa.
+                        <div class="scroll-box">
+                            Werkbon overzicht, smoll, scrollable
+                        </div>
                     </div>
-                    <div class="content-middle-top-grid-card-right">
-                        <form action="" method="post">
-                            @csrf
-
-                            <label for="" class="form-label">Username:</label><br>
-                            <input type="text" placeholder="John Doe" name="" id="" class="card-input"><br>
-                            <div class="whitespace-form"></div>
-
-                            <label for="" class="form-label">Email:</label><br>
-                            <input type="text" placeholder="example@gmail.com" name="" id="" class="card-input"><br>
-                            <div class="whitespace-form"></div>
-
-
-                            <label for="" class="form-label">Password:</label><br>
-                            <input type="password" name="" id="" placeholder="Password" class="card-input"><br>
-                            <div class="whitespace-form"></div>
-
-
-                            <label for="" class="form-label">department:</label><br>
-                            <select name="isEmployee" id="isEmployee" class="card-input">
-                                <option value="0">Klant</option>
-                                <option value="1">Maintenance</option>
-                                <option value="2">Sales</option>
-                                <option value="3">Inkoop</option>
-                                <option value="4">Finance</option>
-                                <option value="5">Admin</option>
-                            </select>
-                            <div class="whitespace-form"></div>
-                            <div class="whitespace-form"></div>
-
-                            <div class="button-submit-form">
-                                <button type="submit">
-                                    <div class="submit-form">
-                                        Create new user
-                                    </div>
-                                </button>
+                    <div class="card-right-grid">
+                        <div class="card-right-grid-left">
+                            <div class="card-right-grid-left-text">
+                                Barroc Intens
                             </div>
-
-                        </form>
+                        </div>
+                        <div class="card-right-grid-middle">
+                            <form action="" method="post">
+                                @csrf
+                                <label for="" class="form-label">Username:</label><br>
+                                <input type="text" placeholder="John Doe" name="" id="" class="card-input"><br>
+                                <div class="whitespace-form"></div>
+                                <label for="" class="form-label">Email:</label><br>
+                                <input type="text" placeholder="example@gmail.com" name="" id="" class="card-input"><br>
+                                <div class="whitespace-form"></div>
+                                <label for="" class="form-label">Password:</label><br>
+                                <input type="password" name="" id="" placeholder="Password" class="card-input"><br>
+                                <div class="whitespace-form"></div>
+                                <label for="" class="form-label">department:</label><br>
+                                <select name="isEmployee" id="isEmployee" class="card-input">
+                                    <option value="0">Klant</option>
+                                    <option value="1">Maintenance</option>
+                                    <option value="2">Sales</option>
+                                    <option value="3">Inkoop</option>
+                                    <option value="4">Finance</option>
+                                    <option value="5">Admin</option>
+                                </select>
+                                <div class="whitespace-form"></div>
+                                <div class="whitespace-form"></div>
+                                <div class="button-submit-form">
+                                    <button type="submit">
+                                        <div class="submit-form">
+                                            Create new user
+                                        </div>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-right-grid-right">
+                            <div class="card-right-grid-right-text">
+                                Barroc Intens
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -306,7 +359,6 @@
                                 @foreach($items as $item)
                                 <div class="collapsible-grid-item">
                                     {{$item->item}}
-
                                 </div>
                                 @endforeach
                             </div>
