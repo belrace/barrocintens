@@ -23,3 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/fullcalender', [MaintenanceAppointmentsController::class, 'index']);
 Route::post('/fullcalenderAjax',  [MaintenanceAppointmentsController::class,'ajax']);
 
+//Route::get('/dashboard/maintenance/storingmelding', function () {
+   // return view('dashboards.maintenance.storingmelding');
+//});

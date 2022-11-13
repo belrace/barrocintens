@@ -58,6 +58,7 @@ $(document).ready(function () {
     FullCalender JS Code
     --------------------------------------------
     --------------------------------------------*/
+    
     var calendar = $('#calendar').fullCalendar({
                     editable: true,
                     events: SITEURL + "/api/fullcalender",
@@ -70,6 +71,7 @@ $(document).ready(function () {
                                 event.allDay = false;
                         }
                     },
+                    
                     selectable: true,
                     selectHelper: true,
                     select: function (start, end, allDay) {
@@ -143,6 +145,7 @@ $(document).ready(function () {
                 });
  
     });
+    
       
     /*------------------------------------------
     --------------------------------------------

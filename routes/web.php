@@ -15,6 +15,8 @@ use App\Http\Controllers\WerkbonMaterialController;
 use App\Http\Controllers\WorkhourController;
 use App\Http\Controllers\leasecontractController;
 use \App\Http\Controllers\CompaniesController;
+use \App\Http\Controllers\StroingmedlingController;
+use App\Models\Storingmedling;
 use App\Models\werkbon;
 
 /*
@@ -100,7 +102,17 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('/maintenance/allappointments', [maintenanceappointmentsController::class, 'getAppointments']);
     Route::get('/maintenance/allappointments', [leasecontractController::class, 'storeleasecontract']);
 
+    //Route::get('/maintenance/storingmedling', [StroingmedlingController::class, 'getStoringmelding']);
+    // Route::get('/maintenance/storingmedling', [maintenanceappointmentsController::class, 'getStoringmelding']);
 
+    Route::get('/maintenance/storingmedling', [StroingmedlingController::class, 'index']);
+    Route::get('/maintenance/storingmedling', [StroingmedlingController::class, 'create']);
+    Route::post('/maintenance/storingmedling', [StroingmedlingController::class, 'store']);
+
+    Route::get('/maintenance/storingmedling', [StroingmedlingController::class, 'create'])->name('dashboards.maintenance.storingmedling');
+    //Route::post('/maintenance/storingmedling', [StroingmedlingController::class, 'postCreate'])->name('dashboards.maintenance.storingmedling');
+
+    
     
 
     Route::get('/sales', function () {
@@ -124,4 +136,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
 

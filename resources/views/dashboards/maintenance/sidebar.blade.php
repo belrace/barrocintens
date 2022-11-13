@@ -23,4 +23,11 @@
             <span class="link">Werkbon</span>
         </a>
     </li>
+
+     <li class="list">
+        <a href="/dashboard/maintenance/storingmedling" class="nav-link">
+            <i class='bx bx-receipt icon'></i>
+            <span class="link">storing melden</span>
+        </a>
+    </li>
 </ul>
