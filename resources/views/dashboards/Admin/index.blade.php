@@ -49,7 +49,7 @@
         }
 
         .content-middle-bottom {
-            margin-top: 50px;
+            margin-top: 25px;
             height: auto;
         }
 
@@ -79,7 +79,6 @@
             font-weight: 600;
             background-color: #4D4D4D;
             color: #ffffff;
-            box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .1), 0 4px 11px 0 rgba(0, 0, 0, .08);
             display: block;
             margin-bottom: 10px;
             cursor: pointer;
@@ -239,6 +238,7 @@
             background-color: #4D4D4D;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         .card-right-grid-right {
@@ -350,6 +350,11 @@
             background-color: #FFEC80;
             scale: 1.1;
         }
+
+        .title-box {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
@@ -375,6 +380,10 @@
             <div class="content-middle-top">
                 <div class="content-middle-top-grid">
                     <div class="content-middle-top-grid-card-left">
+                        <div class="title-box">
+                            Werkbonnen
+                        </div>
+                        <div class="divider"></div>
                         <div class="scroll-div">
                             <div class="scroll-object">
                                 <div class="itembox">
