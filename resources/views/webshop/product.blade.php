@@ -324,16 +324,14 @@ body {
 <ul class="cards">
 @foreach($categories->products as $product)
   <li>
-    
-    <a class="card" href="/webshop/product/{{ $product->id }}">-{{$product->name}}</a>
-    
+    <a href="" class="card">
       <img src="{{ asset('img/' . $product->image_path) }}" class="card__image" alt="" />
       <div class="card__overlay">
         <div class="card__header">
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
           <div class="card__header-text">
             <h3 class="card__title">{{$product->name}}</h3>            
-            <span class="card__status"></span>
+            <span class="card__status">{{$product->price}}</span>
           </div>
         </div>
         <p class="card__description">{{$product->description}}</p>
