@@ -97,13 +97,4 @@ class ProductsController extends Controller
         'products' => $product,
     ]);
     }
-
-
-    public function getProduct($id)
-    {
-        $products = products::find($id);
-        return view('webshop.single', [
-            'products' => $products,
-        ]);
-    }
 }

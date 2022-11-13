@@ -124,9 +124,8 @@ Route::get('/webshop/product/{product_categories}', [ProductsController::class, 
 Route::get('/', [ProductsController::class, 'welcome'])->name('welcome');
 Route::get('/webshop/contact', [ProductsController::class, 'contact'])->name('contact');
 
-Route::get('/webshop/koffiebonen', function () {
-    return view('webshop.koffiebonen');
-});
+Route::get('/webshop/machines', [ProductsController::class, 'getMachines']);
+Route::get('/webshop/koffiebonen', [ProductsController::class, 'getKoffiebonen']);
 Route::get('/webshop/contact', function () {
     return view('webshop.contact');
 });
