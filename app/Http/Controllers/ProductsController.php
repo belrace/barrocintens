@@ -63,4 +63,38 @@ class ProductsController extends Controller
 
         return redirect(route('dashboard.products.index'));
     }
+
+    public function product(product_categories $product_categories)
+    {
+        $product = products::all();
+        $categorie = product_categories::All();
+
+        return view('webshop.product',[
+        'categories'=> $product_categories,
+        'categoriese' => $categorie,
+        'products' => $product,
+        ]);
+    }
+
+    public function welcome()
+    {
+        $product = products::all();
+        $categorie = product_categories::All();
+
+        return view('welcome',[
+        'categoriese' => $categorie,
+        'products' => $product,
+    ]);
+    }
+
+    public function contact()
+    {
+        $product = products::all();
+        $categorie = product_categories::All();
+
+        return view('webshop.contact',[
+        'categoriese' => $categorie,
+        'products' => $product,
+    ]);
+    }
 }

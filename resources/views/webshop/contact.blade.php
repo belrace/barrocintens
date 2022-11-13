@@ -149,135 +149,6 @@
             /*------------------------------------------------einde nav -------------------------------------*/
 
 
-            /*----------------------------------begin cards--------------------------*/
-:root {
-  --surface-color: #fff;
-  --curve: 40;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  background-color: #2c2c2c;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 4rem;
-  margin: 1rem 10vw;
-  padding: 60px;
-  list-style-type: none;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  grid-template-columns: 1fr auto;
-}
-
-.card {
-  position: relative;
-  display: block;
-  height: 350px;
-  border-radius: calc(var(--curve) * 1px);
-  overflow: hidden;
-  text-decoration: none;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-}
-
-.card__image {      
-    width: 100%;
-    height: 310px;
-    background-color: #cbcbcb;
-}
-
-.card__overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;      
-  border-radius: calc(var(--curve) * 1px);    
-  background-color: var(--surface-color);      
-  transform: translateY(100%);
-  transition: .2s ease-in-out;
-}
-
-.card:hover .card__overlay {
-  transform: translateY(0);
-}
-
-.card__header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 2em;
-  padding: 2em;
-  border-radius: calc(var(--curve) * 1px) 0 0 0;    
-  background-color: var(--surface-color);
-  transform: translateY(-100%);
-  transition: .2s ease-in-out;
-}
-
-.card__arc {
-  width: 80px;
-  height: 80px;
-  position: absolute;
-  
-  right: 0;      
-  z-index: 1;
-}
-
-.card__arc path {
-  fill: var(--surface-color);
-  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
-}       
-
-.card:hover .card__header {
-  transform: translateY(0);
-}
-
-.card__thumb {
-  flex-shrink: 0;
-  width: 50px;
-  height: 50px;      
-  border-radius: 50%;      
-}
-
-.card__title {
-  font-size: 1em;
-  margin: 0 0 .3em;
-  color: #252525;
-}
-
-.card__tagline {
-  display: block;
-  margin: 1em 0;
-  font-family: "MockFlowFont";  
-  font-size: .8em; 
-  color: #252525;  
-}
-
-.card__status {
-  font-size: .8em;
-  color: #252525;
-}
-
-.card__description {
-  padding: 0 2em 2em;
-  margin: 0;
-  color: #515151;
-  font-family: "MockFlowFont";   
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-    
-            /*----------------------------------eind cards--------------------------*/
-
         </style>
 
     </head>
@@ -297,11 +168,10 @@ body {
                 </form>-->
             </div>
             <ul>
-            <li><a href="/">home</a></li>
-                @foreach($categoriese as $categorie)
-                <li><a class="active" href="http://barrocintens.test/webshop/product/{{$categorie->id}}">{{$categorie->name}}</a></li>
-                @endforeach
-                <li><a href="http://barrocintens.test/webshop/contact">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="http://barrocintens.test/webshop/product/1">machines</a></li>
+                <li><a href="http://barrocintens.test/webshop/product/2">bonen</a></li>
+                <li><a class="active" href="http://barrocintens.test/webshop/contact">Contact</a></li>
 
                 @if (Route::has('login'))
                 
@@ -317,40 +187,9 @@ body {
             
 
     </header>
-    <div class="relative flex items-top justify-center min-h-screen  sm:items-center py-4 sm:pt-0">
-
-
-<!----begin card--------------------------------------------------------------------------->
-<ul class="cards">
-@foreach($categories->products as $product)
-  <li>
-    <a href="" class="card">
-      <img src="{{ asset('img/' . $product->image_path) }}" class="card__image" alt="" />
-      <div class="card__overlay">
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-          <div class="card__header-text">
-            <h3 class="card__title">{{$product->name}}</h3>            
-            <span class="card__status">{{$product->price}}</span>
-          </div>
-        </div>
-        <p class="card__description">{{$product->description}}</p>
-      </div>
-    </a>      
-  </li>  
-  @endforeach  
-</ul>
-
-
-
-<!----eind card--------------------------------------------------------------------------->
-
-
-        
-
+    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-800 sm:items-center py-4 sm:pt-0">
 
             
-
 
     </body></main>
 </html>

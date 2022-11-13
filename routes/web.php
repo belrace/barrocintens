@@ -117,11 +117,18 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
 
     Route::get('/sales/notes', [NotesController::class, 'getcompanies']);
 });
-Route::get('/webshop/product', function () {
-    return view('webshop.product');
-});
+// Route::get('/webshop/product', function () {
+//     return view('webshop.product');
+// });
+Route::get('/webshop/product/{product_categories}', [ProductsController::class, 'product'])->name('product');
+Route::get('/', [ProductsController::class, 'welcome'])->name('welcome');
+Route::get('/webshop/contact', [ProductsController::class, 'contact'])->name('contact');
+
 Route::get('/webshop/koffiebonen', function () {
     return view('webshop.koffiebonen');
+});
+Route::get('/webshop/contact', function () {
+    return view('webshop.contact');
 });
 
 

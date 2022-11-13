@@ -38,7 +38,7 @@
             position: fixed;
             z-index: 99;
             background: rgba(0, 0, 0, 0.16);
-            margin-top: -1155px;
+            margin-top: -615px;
 
 
         }
@@ -289,6 +289,7 @@ body {
 
         .grid-item-imagebanner{
                     display: grid;
+                    margin-top: 890px;
                     
             }
 
@@ -317,8 +318,114 @@ body {
                     
             }
 
-           
 
+            /*----------------------------------begin about us--------------------------*/
+
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: consolas;
+}
+
+.container{
+    width: 1000px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    left: 20%;
+}
+
+.container .card1{
+    position: relative;
+    cursor: pointer;
+}
+
+.container .card1 .face{
+    width: 300px;
+    height: 200px;
+    transition: 0.5s;
+}
+
+.container .card1 .face.face1{
+    position: relative;
+    background: #262626;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(100px);
+}
+
+.container .card1:hover .face.face1{
+    background: #ffd700;
+    transform: translateY(0);
+}
+
+.container .card1 .face.face1 .content{
+    transition: 0.5s;
+}
+
+.container .card1:hover .face.face1 .content{
+    opacity: 1;
+}
+
+.container .card1 .face.face1 .content img{
+    max-width: 100px;
+}
+
+.container .card1 .face.face1 .content h3{
+    margin: 10px 0 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.container .card1 .face.face2{
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    transform: translateY(-100px);
+}
+
+.container .card1:hover .face.face2{
+    transform: translateY(0);
+}
+
+.container .card1 .face.face2 .content p{
+    margin: 0;
+    padding: 0;
+}
+
+.container .card1 .face.face2 .content a{
+    margin: 15px 0 0;
+    display:  inline-block;
+    text-decoration: none;
+    font-weight: 900;
+    color: #333;
+    padding: 5px;
+    border: 1px solid #333;
+}
+
+.container .card1 .face.face2 .content a:hover{
+    background: #333;
+    color: #fff;
+}
+
+            
+            /*----------------------------------eind about us--------------------------*/
+
+           
 
         </style>
 
@@ -329,7 +436,7 @@ body {
 
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-800 sm:items-center py-4 sm:pt-0">
+        <div class="relative flex items-top justify-center min-h-screen  sm:items-center py-4 sm:pt-0">
 
 
 <!--product pagina code-->
@@ -344,10 +451,13 @@ body {
                 </form>-->
             </div>
             <ul>
+                
                 <li><a class="active" href="http://barrocintens.test/webshop/product">home</a></li>
-                <li><a href="http://barrocintens.test/webshop/product">apparaten</a></li>
-                <li><a href="http://barrocintens.test/webshop/koffiebonen">koffiebonen</a></li>
-                <li><a href="#">Contact</a></li>
+                @foreach($categoriese as $categorie)
+                <li><a href="http://barrocintens.test/webshop/product/{{$categorie->id}}">{{$categorie->name}}</a></li>
+                @endforeach
+                <li><a href="http://barrocintens.test/webshop/contact">Contact</a></li>
+               
 
                 @if (Route::has('login'))
                 
@@ -363,13 +473,15 @@ body {
 
     </header>
 
+    <!--2cards pagina code-->
+
 <main><div class="grid-container">
         <div class="grid-item-imagebanner"><img src="/img/barrocbanner2.png" alt="5 Terre" width="1550" height="auto"></div> 
 
 
     <ul class="cards">
     <li>
-        <a href="http://barrocintens.test/webshop/product" class="card">
+        <a href="http://barrocintens.test/webshop/product/1" class="card">
         <img src="/img/bannercoffee1.png" class="card__image" alt="" />
         <div class="card__overlay">
             <div class="card__header">
@@ -385,7 +497,7 @@ body {
     </li>  
     
     <li>
-        <a href="http://barrocintens.test/webshop/koffiebonen" class="card">
+        <a href="http://barrocintens.test/webshop/product/2" class="card">
         <img src="/img/bannercoffe2.png" class="card__image" alt="" />
         <div class="card__overlay">
             <div class="card__header">
@@ -405,19 +517,55 @@ body {
 
     </ul>
 
-    
+    <!----begin about us--------------------------------------------------------------------------->
+
+    <div class="container">
+        <div class="card1">
+            <div class="face face1">
+                <div class="content">
+                <img src="">
+                    <h3>Onze Koffie</h3>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <p>Onze Barroc Intens chamberlain Coffee is geproduceerd door erkende koffieboon verbouwers in Zuid-amerika. Wij gaan zelf vaak ook een kijkje nemen om zo aan een eerlijke bonen te komen.</p>
+                        
+                </div>
+            </div>
+        </div>
+        <div class="card1">
+            <div class="face face1">
+                <div class="content">
+                    <h3>Over Ons</h3>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <p>Wij van Barroc Intens zijn gespeciaaliseert in Koffie apparaten voor proffesioneel gebruik. Wij maken onze apparaten met passie voor het vak. Ook hebben we onze eigen  koffiebonen die we slaaf vrij produceren.</p>
+                        
+                </div>
+            </div>
+        </div>
+        <div class="card1">
+            <div class="face face1">
+                <div class="content">
+                    <h3>Service</h3>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <p>Wij verlenen ook een service aan onze apparaten, deze kan ingepland worden maar kan ook regulier zo zorgen we dat u koffie heeft en wij dat onze apparaten altijd van top kwaliteit zijn.</p>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----eind about us--------------------------------------------------------------------------->
 
     
     </div></main>
-
-
-            
-<!--onder deafbeelding-->
-
-    <div class="">
-    </div>
-
- 
 
 </body>
 </html>
