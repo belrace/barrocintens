@@ -274,6 +274,82 @@
             background-color: #4D4D4D;
             border-radius: 10px;
         }
+
+        .scroll-div {
+            height: 400px;
+            overflow: hidden;
+            overflow-y: scroll;
+        }
+
+        .scroll-object {
+            padding-right: 15px;
+        }
+
+        .itembox {
+            padding-left: 45px;
+            padding-right: 45px;
+            padding-bottom: 45px;
+            padding-top: 20px;
+        }
+
+        .item {
+            background-color: #4D4D4D;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .item-grid {
+            display: grid;
+            padding-left: 10px;
+            align-items: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 10px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .title {
+            font-size: 1em;
+        }
+
+        .icon-arrow {
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            transform: rotate(180deg);
+        }
+
+        .divider {
+            height: 1px;
+            width: 100%;
+            background-color: #FFD700;
+            opacity: 0.2;
+            border-radius: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .btn-right {
+            display: flex;
+            justify-content: right;
+        }
+
+        .button {
+            background-color: #FFD700;
+            width: 35px;
+            height: 35px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            border-radius: 100px;
+            font-size: 1.3em;
+        }
+
+        .button:hover {
+            background-color: #FFEC80;
+            scale: 1.1;
+        }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
@@ -299,8 +375,33 @@
             <div class="content-middle-top">
                 <div class="content-middle-top-grid">
                     <div class="content-middle-top-grid-card-left">
-                        <div class="scroll-box">
-                            Werkbon overzicht, smoll, scrollablea
+                        <div class="scroll-div">
+                            <div class="scroll-object">
+                                <div class="itembox">
+                                    <div class="item">
+                                        @foreach($werkbonnen as $werkbon)
+                                        <div class="item-grid">
+                                            <div class="title">
+                                                {{$werkbon->Companies->name}}
+                                                -
+                                                {{$werkbon->title}}
+                                            </div>
+                                            <div class="btn-right">
+                                                <a href="/dashboard/maintenance/werkbon/{{$werkbon->id}}">
+                                                    <div class="button">
+                                                        <i class='bx bx-chevron-right'></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        @if($werkbon->id == $lastWerkbon->id)
+                                        @else
+                                        <div class="divider"></div>
+                                        @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card-right-grid">

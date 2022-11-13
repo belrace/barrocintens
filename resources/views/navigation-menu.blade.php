@@ -16,8 +16,8 @@
                         {{ __('Welkom') }}
                     </x-jet-nav-link>
                     @if (Auth::user()->id == 1)
-                        <x-jet-nav-link href="{{ route('dashboard.user.create') }}" :active="request()->routeIs('dashboard.user.create')">
-                            {{ __('Maak niewe gebruiker aan') }}
+                        <x-jet-nav-link href="{{ route('dashboard.admin.index') }}" :active="request()->routeIs('dashboard.admin.index')">
+                            {{ __('Ga naar admin-portal') }}
                         </x-jet-nav-link>
                     @endif
                 </div>
