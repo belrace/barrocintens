@@ -300,7 +300,7 @@
                 <div class="content-middle-top-grid">
                     <div class="content-middle-top-grid-card-left">
                         <div class="scroll-box">
-                            Werkbon overzicht, smoll, scrollable
+                            Werkbon overzicht, smoll, scrollablea
                         </div>
                     </div>
                     <div class="card-right-grid">
