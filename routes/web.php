@@ -16,6 +16,8 @@ use App\Http\Controllers\WerkbonMaterialController;
 use App\Http\Controllers\WorkhourController;
 use App\Http\Controllers\leasecontractController;
 use \App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\MaterialController;
+use App\Models\material;
 use App\Models\werkbon;
 
 /*
@@ -37,6 +39,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
 
     // rousource routes
     Route::resource('/admin', AdminController::class);
+    Route::resource('/maintenance/materialen', MaterialController::class);
     Route::resource('/products', ProductsController::class);
     Route::get('/inkoop/product/add', [ProductsController::class, 'index']);
 
@@ -133,6 +136,7 @@ Route::get('/webshop/product/{id}', [ProductsController::class, 'getProduct']);
 Route::get('/webshop', function () {
     return view('webshop.index');
 });
+
 
 Route::middleware([
     'auth:sanctum',

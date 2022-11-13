@@ -14,4 +14,9 @@ class material extends Model
     {
         return $this->hasMany(werkbon_material::class, 'material_id');
     }
+
+    public function Stocks()
+    {
+        return $this->belongsTo(stock::class, 'material_id');
+    }
 }
