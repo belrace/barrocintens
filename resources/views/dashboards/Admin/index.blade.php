@@ -46,6 +46,7 @@
             font-family: "Big Shoulders Display", sans-serif;
             display: flex;
             justify-content: right;
+            user-select: none;
         }
 
         .content-middle-bottom {
@@ -120,7 +121,7 @@
         }
 
         .collapsible input:checked~.collapsible-text {
-            max-height: 300px;
+            max-height: 500px;
             padding-bottom: 25px;
             background-color: #4D4D4D;
             box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .1), 0 4px 11px 0 rgba(0, 0, 0, .08);
