@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         ];
         DB::table('users')->insert($users);
 
-        $faker = Faker::create();
+        $faker = Faker::create('nl_NL');
         foreach (range(1, 40) as $value) {
             DB::table('users')->insert([
                 'name' => $faker->name,
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         ];
         DB::table('teams')->insert($teams);
 
-        $faker = Faker::create();
+        $faker = Faker::create('nl_NL');
         foreach (range(1, 200) as $value) {
             DB::table('companies')->insert([
                 'name' => $faker->name,
@@ -79,7 +79,7 @@ class DatabaseSeeder extends Seeder
         ];
         DB::table('werkbons')->insert($werkbon);
 
-        $faker = Faker::create();
+        $faker = Faker::create('nl_NL');
         foreach (range(1, 35) as $value) {
             DB::table('werkbons')->insert([
                 'title' => 'Routine bij: ' . $faker->name,
@@ -88,12 +88,34 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $faker = Faker::create();
+        $faker = Faker::create('nl_NL');
         foreach (range(1, 35) as $value) {
             DB::table('werkbons')->insert([
                 'title' => 'Storing bij: ' . $faker->name,
                 'company_id' => $faker->numberBetween(1, 200),
                 'user_id' => $faker->numberBetween(2, 45),
+            ]);
+        }
+
+        $faker = Faker::create('nl_NL');
+        foreach (range(1, 500) as $value) {
+            DB::table('werkbon_materials')->insert([
+                'amount' => $faker->numberBetween(1 - 50),
+                'werkbon_id' => $faker->numberBetween(1, 78),
+                'material_id' => $faker->numberBetween(1, 16),
+            ]);
+        }
+
+        $faker = Faker::create('nl_NL');
+        $starttime = $faker->time;
+        $endtime = $faker->time;
+        foreach (range(1, 500) as $value) {
+            DB::table('workhours')->insert([
+                'date' => $faker->date,
+                'from' => $starttime,
+                'until' => $endtime,
+                'hourlypay' => $faker->numberBetween(1, 50),
+                'werkbon_id' => $faker->numberBetween(1, 78),
             ]);
         }
 
