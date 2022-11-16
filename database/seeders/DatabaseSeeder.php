@@ -79,26 +79,6 @@ class DatabaseSeeder extends Seeder
         ];
         DB::table('materials')->insert($material);
 
-        $stocks = [
-            ['id' => 1, 'amount' => 100, 'material_id' => 1],
-            ['id' => 2, 'amount' => 100, 'material_id' => 2],
-            ['id' => 3, 'amount' => 100, 'material_id' => 3],
-            ['id' => 4, 'amount' => 100, 'material_id' => 4],
-            ['id' => 5, 'amount' => 100, 'material_id' => 5],
-            ['id' => 6, 'amount' => 100, 'material_id' => 6],
-            ['id' => 7, 'amount' => 100, 'material_id' => 7],
-            ['id' => 8, 'amount' => 100, 'material_id' => 8],
-            ['id' => 9, 'amount' => 100, 'material_id' => 9],
-            ['id' => 10, 'amount' => 100, 'material_id' => 10],
-            ['id' => 11, 'amount' => 100, 'material_id' => 11],
-            ['id' => 12, 'amount' => 100, 'material_id' => 12],
-            ['id' => 13, 'amount' => 100, 'material_id' => 13],
-            ['id' => 14, 'amount' => 100, 'material_id' => 14],
-            ['id' => 15, 'amount' => 100, 'material_id' => 15],
-            ['id' => 16, 'amount' => 100, 'material_id' => 16],
-        ];
-        DB::table('stocks')->insert($stocks);
-
         $categories = [
             ['id' => 1, 'name' => 'Machine\'s', 'is_employee_only' => 0],
             ['id' => 2, 'name' => 'Bonen', 'is_employee_only' => 0],
@@ -106,12 +86,12 @@ class DatabaseSeeder extends Seeder
         DB::table('product_categories')->insert($categories);
 
         $products = [
-            ['id' => 1, 'name' => 'Bit-Deluxe', 'description' => 'The better version of the Bit collection!', 'image_path' => 'machinebitdeluxe2.png', 'brand' => 'Bit', 'price' => 499, 'product_category_id' => 1],
-            ['id' => 2, 'name' => 'Bit-Light', 'description' => 'The lesser version of the Bit collection!', 'image_path' => 'machinebitlight1.png', 'brand' => 'Bit', 'price' => 799, 'product_category_id' => 1],
-            ['id' => 3, 'name' => 'Espresso Beneficio', 'description' => 'Een toegankelijke en zachte koffie. Hij is afkomstig van de Finca El Limoncillo, een weelderige plantage aan de rand van het regenwoud in de Matagalpa regio in Nicaragua.', 'image_path' => 'bonenzak1.png', 'brand' => 'Espresso Beneficio', 'price' => 21.60, 'product_category_id' => '2'],
-            ['id' => 4, 'name' => 'Yellow Bourbon Brasi', 'description' => 'Koffie van de oorspronkelijke koffiestruik (de Bourbon) met gele koffiebessen. Deze zeldzame koffie heeft de afgelopen 20 jaar steeds meer erkenning gekregen en vele prijzen gewonnen.', 'image_path' => 'bonenzak2.png', 'brand' => 'Yellow Bourbon Brasil', 'price' => 23.20, 'product_category_id' => '2'],
-            ['id' => 5, 'name' => 'Espresso Roma', 'description' => 'Een Italiaanse espresso met een krachtig karakter en een aromatische afdronk.', 'image_path' => 'bonenzak3.png', 'brand' => 'Espresso Roma', 'price' => 20.80, 'product_category_id' => '2'],
-            ['id' => 6, 'name' => 'Red Honey Honduras', 'description' => 'De koffie is geproduceerd volgens de honey-methode. Hierbij wordt de koffieboon in haar vruchtvlees gedroogd, waardoor de zoete fruitsmaak diep in de boon trekt. Dit levert een éxtra zoete koffie op.', 'image_path' => 'bonenzak4.png', 'brand' => 'Red Honey Honduras', 'price' => 27.80, 'product_category_id' => '2'],
+            ['id' => 1, 'name' => 'Bit-Deluxe', 'description' => 'The better version of the Bit collection!', 'image_path' => 'machinebitdeluxe2.png', 'brand' => 'Bit', 'price' => 499, 'stock' => 9, 'product_category_id' => 1],
+            ['id' => 2, 'name' => 'Bit-Light', 'description' => 'The lesser version of the Bit collection!', 'image_path' => 'machinebitlight1.png', 'brand' => 'Bit', 'price' => 799, 'stock' => 100, 'product_category_id' => 1],
+            ['id' => 3, 'name' => 'Espresso Beneficio', 'description' => 'Een toegankelijke en zachte koffie. Hij is afkomstig van de Finca El Limoncillo, een weelderige plantage aan de rand van het regenwoud in de Matagalpa regio in Nicaragua.', 'image_path' => 'bonenzak1.png', 'brand' => 'Espresso Beneficio', 'price' => 21.60, 'stock' => 0, 'product_category_id' => '2'],
+            ['id' => 4, 'name' => 'Yellow Bourbon Brasi', 'description' => 'Koffie van de oorspronkelijke koffiestruik (de Bourbon) met gele koffiebessen. Deze zeldzame koffie heeft de afgelopen 20 jaar steeds meer erkenning gekregen en vele prijzen gewonnen.', 'image_path' => 'bonenzak2.png', 'brand' => 'Yellow Bourbon Brasil', 'price' => 23.20, 'stock' => 100, 'product_category_id' => '2'],
+            ['id' => 5, 'name' => 'Espresso Roma', 'description' => 'Een Italiaanse espresso met een krachtig karakter en een aromatische afdronk.', 'image_path' => 'bonenzak3.png', 'brand' => 'Espresso Roma', 'price' => 20.80, 'stock' => 6, 'product_category_id' => '2'],
+            ['id' => 6, 'name' => 'Red Honey Honduras', 'description' => 'De koffie is geproduceerd volgens de honey-methode. Hierbij wordt de koffieboon in haar vruchtvlees gedroogd, waardoor de zoete fruitsmaak diep in de boon trekt. Dit levert een éxtra zoete koffie op.', 'image_path' => 'bonenzak4.png', 'brand' => 'Red Honey Honduras', 'price' => 27.80, 'stock' => 100, 'product_category_id' => '2'],
         ];
         DB::table('products')->insert($products);
     }
