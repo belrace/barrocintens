@@ -52,7 +52,7 @@
 
         </div>
 
-        <div class="ml-12">
+        <!-- <div class="ml-12">
             <div class="mt-2 text-sm text-gray-500">
                 <div class=" text-lg text-gray-600 leading-7 font-semibold"><a href="https://laravel.com/docs">Contact-Form</a></div><br>
                 <div style="display: flex; flex-direction: column; width: 60%; border-radius: 20px">
@@ -73,7 +73,7 @@
                         }
                     </style>
                 </div>
-        </div>
+        </div> -->
 
         </div>
 

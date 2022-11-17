@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MaintenanceAppointmentsController;
 use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\afdelingsController;
@@ -16,8 +15,8 @@ use App\Http\Controllers\WerkbonMaterialController;
 use App\Http\Controllers\WorkhourController;
 use App\Http\Controllers\leasecontractController;
 use \App\Http\Controllers\CompaniesController;
-use App\Http\Controllers\MaterialController;
-use App\Models\material;
+use \App\Http\Controllers\StroingmedlingController;
+use App\Models\Storingmedling;
 use App\Models\werkbon;
 
 /*
@@ -38,8 +37,6 @@ Route::get('/', function () {
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboard.'], function () {
 
     // rousource routes
-    Route::resource('/admin', AdminController::class);
-    Route::resource('/maintenance/materialen', MaterialController::class);
     Route::resource('/products', ProductsController::class);
     Route::get('/inkoop/product/add', [ProductsController::class, 'index']);
 
@@ -65,7 +62,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     });
 
     Route::get('/afdeling/4', [NotificationsController::class, 'getNotifications']);
-    Route::post('/afdeling/4', [NotificationsController::class, 'store']);
     Route::get('/afdeling/{teams}', [afdelingsController::class, 'getafdeling']);
 
 
@@ -92,50 +88,44 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'as' => 'dashboar
     Route::get('/inkoop', function () {
         return view('dashboards.inkoop.index');
     });
-
     // Route::get('/inkoop', [InkoopController::class, 'getinkoop']);
     // Route::get('/maintenance', function () {
     //     return view('dashboards.maintenance.index');
     // });
-    Route::get('/maintenance/werkbon/overzicht', [WerkbonController::class, 'getWerkbonnen']);
+    Route::get('/maintenance/werkbon', [WerkbonController::class, 'getWerkbon']);
+    // Route::post('/maintenance/werkbon', [WerkbonController::class, 'store']);
+    Route::get('maintenance/werkbon/overzicht', [WerkbonController::class, 'getWerkbonnen']);
 
-    Route::get('/maintenance/werkbon/{id}', [WerkbonController::class, 'getWerkbon']);
-
-
+ 
 
 
     Route::get('/maintenance/allappointments', [maintenanceappointmentsController::class, 'getAppointments']);
     Route::get('/maintenance/allappointments', [leasecontractController::class, 'storeleasecontract']);
 
+    //Route::get('/maintenance/storingmedling', [StroingmedlingController::class, 'getStoringmelding']);
+    // Route::get('/maintenance/storingmedling', [maintenanceappointmentsController::class, 'getStoringmelding']);
 
+    Route::get('/maintenance/storingmedling', [StroingmedlingController::class, 'index']);
+    Route::get('/maintenance/storingmedling', [StroingmedlingController::class, 'create']);
+    Route::post('/maintenance/storingmedling', [StroingmedlingController::class, 'store']);
 
+    Route::get('/maintenance/storingmedling', [StroingmedlingController::class, 'create'])->name('dashboards.maintenance.storingmedling');
+    //Route::post('/maintenance/storingmedling', [StroingmedlingController::class, 'postCreate'])->name('dashboards.maintenance.storingmedling');
+
+    
+    
 
     Route::get('/sales', function () {
         return view('dashboards.sales.index');
     });
 
-
     Route::get('/sales/notes', [NotesController::class, 'getcompanies']);
 });
-// Route::get('/webshop/product', function () {
-//     return view('webshop.product');
-// });
-Route::get('/webshop/product/{product_categories}', [ProductsController::class, 'product'])->name('product');
-Route::get('/', [ProductsController::class, 'welcome'])->name('welcome');
-Route::get('/webshop/contact', [ProductsController::class, 'contact'])->name('contact');
 
-Route::get('/webshop/machines', [ProductsController::class, 'getMachines']);
-Route::get('/webshop/koffiebonen', [ProductsController::class, 'getKoffiebonen']);
-Route::get('/webshop/contact', function () {
-    return view('webshop.contact');
-});
-
-Route::get('/webshop/product/{id}', [ProductsController::class, 'getProduct']);
 
 Route::get('/webshop', function () {
     return view('webshop.index');
 });
-
 
 Route::middleware([
     'auth:sanctum',
@@ -146,3 +136,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+

@@ -702,7 +702,7 @@
 
             @if (Route::has('login'))
                 @auth
-                    <li><a href="{{ url('/dashboard') }}" class="">Dashboard</a></li>
+                    <li><a href="{{ url('/dashboard/admin') }}" class="">Dashboard</a></li>
                 @else
                     <li><a href="{{ route('login') }}" class="">Log in</a></li>
                 @endauth
