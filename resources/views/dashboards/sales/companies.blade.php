@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="overflow-x-auto relative">
+                <div class="relative ">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400" id="product-table">
                         <thead class="text-xs text-gray-700 uppercase dark:text-gray-400" style="background: #212121; color: #ffd700;">
                         <tr>
@@ -122,7 +122,7 @@
                             <th scope="col" class="py-3 px-6">
                                 BKR-check
                             </th>
-                            <th colspan="2" scope="col" class="py-3 px-6">
+                            <th colspan="2" scope="col" class="py-3 px-6 text-center">
                                 Options
                             </th>
                         </tr>

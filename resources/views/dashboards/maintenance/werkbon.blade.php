@@ -142,6 +142,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
             gap: 10%;
+            max-height:315px;
         }
 
         .uren-top-grid {
@@ -200,6 +201,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
             gap: 10%;
+            
         }
 
         .Materials-grid-2 {
@@ -369,7 +371,7 @@
                 <div class="divider-2"></div>
             </div>
             <div class="uren-bottom">
-                <div class="uren-grid-2">
+             <div style="overflow-y:auto"><div class="uren-grid-2">
                     @foreach ($hours as $hour)
                     <div>{{ $hour->date }}</div>
                     <div>{{ $hour->from }}</div>
@@ -414,7 +416,7 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
+                </div></div>
             </div>
         </div>
         <div class="white-space"></div>
@@ -468,7 +470,7 @@
                 </div>
             </div>
             <div class="Materials-middle">
-                <div class="Materials-grid-1">
+             <div class="Materials-grid-1">
                     <div>Artikel</div>
                     <div>Eenheid</div>
                     <div>Stukprijs</div>
@@ -478,7 +480,7 @@
                 <div class="divider-2"></div>
             </div>
             <div class="Materials-bottom">
-                <div class="Materials-grid-2">
+                <div style="overflow-y:auto"><div class="Materials-grid-2">
                     @foreach ($items as $item)
                     <div>{{ $item->Materials->item }}</div>
                     <div>{{ $item->Materials->unit }}</div>
@@ -517,7 +519,7 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
+                </div></div>
             </div>
         </div>
     </div>

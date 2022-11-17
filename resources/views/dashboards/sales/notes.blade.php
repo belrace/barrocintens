@@ -42,7 +42,7 @@
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Notitie
                                         beschrijving:</label>
                                     <textarea name="note" id="" cols="34" rows="10"></textarea>
-                                    <select id="company" name='company_id'>
+                                    <select id="company" class="w-64" name='company_id'>
                                         @foreach ($companies as $company)
                                             <option value="{{ $company->id }}">{{ $company->name }}</option>
                                         @endforeach
