@@ -23,10 +23,4 @@
             <span class="link">Werkbon</span>
         </a>
     </li>
-    <li class="list">
-        <a href="/dashboard/maintenance/materialen" class="nav-link">
-            <i class='bx bxs-wrench icon'></i>
-            <span class="link">materialen</span>
-        </a>
-    </li>
 </ul>
