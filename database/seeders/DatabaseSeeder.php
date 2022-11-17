@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use \App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Date;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,27 +27,45 @@ class DatabaseSeeder extends Seeder
         // ]);
         $users = [
             ['id' => 1, 'name' => 'AdminBarrocIntens', 'email' => 'AdminTeam@BarrocIntens.nl', 'password' => bcrypt('AdminBarroc'), 'current_team_id' => '1'],
+            ['id' => 2, 'name' => 'Sales', 'email' => 'Sales@BarrocIntens.nl', 'password' => bcrypt('Sales'), 'current_team_id' => '2'],
+            ['id' => 3, 'name' => 'Maintenance', 'email' => 'Maintenance@BarrocIntens.nl', 'password' => bcrypt('Maintenance'), 'current_team_id' => '3'],
+            ['id' => 4, 'name' => 'Inkoop', 'email' => 'Inkoop@BarrocIntens.nl', 'password' => bcrypt('Inkoop'), 'current_team_id' => '4'],
+            ['id' => 5, 'name' => 'Finance', 'email' => 'Finance@BarrocIntens.nl', 'password' => bcrypt('Finance'), 'current_team_id' => '5'],
         ];
         DB::table('users')->insert($users);
 
+        $faker = Faker::create('nl_NL');
+        foreach (range(1, 40) as $value) {
+            DB::table('users')->insert([
+                'name' => $faker->name,
+                'email' => $faker->email,
+                'password' => bcrypt($faker->password),
+                'current_team_id' => $faker->numberBetween(2, 5),
+            ]);
+        }
+
         $teams = [
             ['id' => 1, 'user_id' => '1', 'name' => 'admin', 'personal_team' => '1'],
-            ['id' => 2, 'user_id' => '1', 'name' => 'finance', 'personal_team' => '0'],
-            ['id' => 3, 'user_id' => '1', 'name' => 'inkoop', 'personal_team' => '0'],
-            ['id' => 4, 'user_id' => '1', 'name' => 'maintenance', 'personal_team' => '0'],
-            ['id' => 5, 'user_id' => '1', 'name' => 'sales', 'personal_team' => '0'],
+            ['id' => 2, 'user_id' => '5', 'name' => 'finance', 'personal_team' => '5'],
+            ['id' => 3, 'user_id' => '4', 'name' => 'inkoop', 'personal_team' => '4'],
+            ['id' => 4, 'user_id' => '3', 'name' => 'maintenance', 'personal_team' => '3'],
+            ['id' => 5, 'user_id' => '2', 'name' => 'sales', 'personal_team' => '2'],
         ];
         DB::table('teams')->insert($teams);
 
-        $companies = [
-            ['id' => 1, 'name' => 'Curio RSD', 'phone' => 123456789, 'street' => 'Knipplein', 'house_number' => 11, 'zipcode' => '4551 GE', 'city' => 'Roosendaal', 'country_code' => '+31', 'contact_id' => 1],
-            ['id' => 2, 'name' => 'Dream works', 'phone' => 123456789, 'street' => 'Ergens', 'house_number' => 44, 'zipcode' => '4551 GE', 'city' => 'Roosendaal', 'country_code' => '+31', 'contact_id' => 1],
-            ['id' => 3, 'name' => 'Kruidvat', 'phone' => 123456789, 'street' => 'Ergens', 'house_number' => 44, 'zipcode' => '4551 GE', 'city' => 'Roosendaal', 'country_code' => '+31', 'contact_id' => 1],
-            ['id' => 4, 'name' => 'Ikea', 'phone' => 123456789, 'street' => 'Ergens', 'house_number' => 44, 'zipcode' => '4551 GE', 'city' => 'Roosendaal', 'country_code' => '+31', 'contact_id' => 1],
-            ['id' => 5, 'name' => 'Mediamarkt', 'phone' => 123456789, 'street' => 'Ergens', 'house_number' => 44, 'zipcode' => '4551 GE', 'city' => 'Roosendaal', 'country_code' => '+31', 'contact_id' => 1],
-            ['id' => 6, 'name' => 'Starbucks', 'phone' => 123456789, 'street' => 'Ergens', 'house_number' => 44, 'zipcode' => '4551 GE', 'city' => 'Roosendaal', 'country_code' => '+31', 'contact_id' => 1],
-        ];
-        DB::table('companies')->insert($companies);
+        $faker = Faker::create('nl_NL');
+        foreach (range(1, 200) as $value) {
+            DB::table('companies')->insert([
+                'name' => $faker->name,
+                'phone' => $faker->phoneNumber,
+                'street' => $faker->streetAddress,
+                'house_number' => $faker->numberBetween(1, 200),
+                'zipcode' => $faker->postcode,
+                'city' => $faker->city,
+                'country_code' => $faker->countryCode,
+                'contact_id' => 1,
+            ]);
+        }
 
         $werkbon = [
             ['id' => 1, 'title' => 'Missende onderdeel', 'company_id' => 6, 'user_id' => 1],
@@ -58,6 +78,47 @@ class DatabaseSeeder extends Seeder
             ['id' => 8, 'title' => 'Moertjes kwijt', 'company_id' => 6, 'user_id' => 1],
         ];
         DB::table('werkbons')->insert($werkbon);
+
+        $faker = Faker::create('nl_NL');
+        foreach (range(1, 35) as $value) {
+            DB::table('werkbons')->insert([
+                'title' => 'Routine bij: ' . $faker->name,
+                'company_id' => $faker->numberBetween(1, 200),
+                'user_id' => $faker->numberBetween(2, 45),
+            ]);
+        }
+
+        $faker = Faker::create('nl_NL');
+        foreach (range(1, 35) as $value) {
+            DB::table('werkbons')->insert([
+                'title' => 'Storing bij: ' . $faker->name,
+                'company_id' => $faker->numberBetween(1, 200),
+                'user_id' => $faker->numberBetween(2, 45),
+            ]);
+        }
+
+        $faker = Faker::create('nl_NL');
+        foreach (range(1, 500) as $value) {
+            DB::table('werkbon_materials')->insert([
+                'amount' => $faker->numberBetween(1 - 50),
+                'werkbon_id' => $faker->numberBetween(1, 78),
+                'material_id' => $faker->numberBetween(1, 16),
+            ]);
+        }
+
+        $faker = Faker::create('nl_NL');
+        $starttime = $faker->time;
+        $endtime = $faker->time;
+        foreach (range(1, 500) as $value) {
+            DB::table('workhours')->insert([
+                'date' => $faker->date,
+                'from' => $starttime,
+                'until' => $endtime,
+                'hourlypay' => $faker->numberBetween(1, 50),
+                'werkbon_id' => $faker->numberBetween(1, 78),
+            ]);
+        }
+
 
         $material = [
             ['id' => 1, 'item' => 'Rubber(10 mm)', 'unit' => 'stuk(s)', 'prijs' => 0.39],
