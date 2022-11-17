@@ -98,9 +98,9 @@ class DatabaseSeeder extends Seeder
         }
 
         $faker = Faker::create('nl_NL');
-        foreach (range(1, 500) as $value) {
+        foreach (range(1, 30) as $value) {
             DB::table('werkbon_materials')->insert([
-                'amount' => $faker->numberBetween(1 - 50),
+                'amount' => $faker->numberBetween(1, 50),
                 'werkbon_id' => $faker->numberBetween(1, 78),
                 'material_id' => $faker->numberBetween(1, 16),
             ]);
@@ -109,7 +109,7 @@ class DatabaseSeeder extends Seeder
         $faker = Faker::create('nl_NL');
         $starttime = $faker->time;
         $endtime = $faker->time;
-        foreach (range(1, 500) as $value) {
+        foreach (range(1, 30) as $value) {
             DB::table('workhours')->insert([
                 'date' => $faker->date,
                 'from' => $starttime,
